@@ -2,7 +2,7 @@ package hackerrank;
 
 import java.util.Scanner;
 
-public class TestPrintf {
+public class OutputFormatting {
     public static void main(String[] args) {
         //java 100
         //cpp 65
