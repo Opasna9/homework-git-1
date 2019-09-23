@@ -56,7 +56,6 @@ public class Tasks {
     private static double[] createRandomArray(int countElement) {
         double[] array = new double[countElement];
         System.out.print("[");
-
         for (int i = 0; i < array.length; i++) {
             array[i] = RANDOM.nextInt(100);
             System.out.print(array[i]);
