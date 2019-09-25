@@ -323,7 +323,7 @@ public class Tasks1 {
     }
 
     private static double findMaxElement(double[] array) {
-        double maxElement = 0;
+        double maxElement = array[0];
         for (double anArray : array) {
             if (anArray > maxElement) {
                 maxElement = anArray;
