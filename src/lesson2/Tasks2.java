@@ -4,6 +4,7 @@ import lesson1.DataPrint;
 import lesson1.DataRandom;
 
 import javax.xml.transform.sax.SAXSource;
+import java.util.ArrayList;
 
 public class Tasks2 {
     public static void main(String[] args) {
@@ -30,7 +31,7 @@ public class Tasks2 {
         runTask17(array);
         runTask18(array);
         runTask19();
-        runTask20();
+        runTask20(array);
     }
 
     private static void runTask1(int[] array) {
@@ -330,7 +331,7 @@ public class Tasks2 {
         System.out.println("maxValue = " + maxValue);
         secondMaxValue = minValue;
         for (int anArray : array) {
-            if ((anArray != maxValue)&&(anArray > minValue) && (anArray > secondMaxValue)){
+            if ((anArray != maxValue) && (anArray > minValue) && (anArray > secondMaxValue)){
                 secondMaxValue = anArray;
             }
         }
@@ -366,9 +367,42 @@ public class Tasks2 {
 
     private static void runTask19() {
         System.out.println("\nTask 19. Write a Java program to add two matrices of the same size.");
+        int size = 4;
+        int[][] matrixFirst = new int[size][size];
+        int[][] matrixSecond = new int[size][size];
+        int value = 10;
+        System.out.println("matrixFirst");
+        for (int[] ints : matrixFirst) {
+            value++;
+            for (int anInt : ints) {
+                value++;
+                anInt = value;
+                System.out.print (anInt + " ");
+            }
+            System.out.println("");
+        }
+        System.out.println("matrixSecond");
+        for (int[] ints : matrixSecond) {
+            value += +2;
+            for (int anInt : ints) {
+                value++;
+                anInt = value;
+                System.out.print (anInt + " ");
+            }
+            System.out.println("");
+        }
+        System.out.println("");
     }
 
-    private static void runTask20() {
+    private static void runTask20(int[] array) {
         System.out.println("\nTask 20. Write a Java program to convert an array to ArrayList.");
+        DataPrint.printArray(array);
+        ArrayList<Integer> arrayList = new ArrayList<Integer>();
+        for (int i : array) {
+            arrayList.add(i);
+        }
+        for (Integer i : arrayList) {
+            System.out.print(i + " ");
+        }
     }
 }

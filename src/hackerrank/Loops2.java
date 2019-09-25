@@ -16,7 +16,6 @@ public class Loops2 {
             s = ""+a;
             //System.out.println("n = " + n);
             for(int j = 0; j < n; j++){
-
                 s+= ("+2^"+j+"*"+b);
                 //System.out.println(s);
                 result += (int)Math.pow(2, j)*b;
