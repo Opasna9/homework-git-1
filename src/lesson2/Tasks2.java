@@ -28,7 +28,7 @@ public class Tasks2 {
         runTask3();
         runTask4(array);
         runTask5();
-        runTask6(array);
+        runTask6();
         runTask7();
         runTask8(array);
         runTask9(array);
@@ -126,15 +126,26 @@ public class Tasks2 {
         }
     }
 
-    private static void runTask6(int[] array) {
+    private static void runTask6() {
         System.out.println("\nTask 6.  Write a Java program to find the index of an array element.");
+        int[] array = {5, 0, 5, 5, 6, 7, 6, 4, 5};
         DataPrint.printArray(array);
-        int index = 6;
-        if ((index < array.length) && (index >= 0)) {
-            System.out.println("index = " + index + " value = " + array[index]);
-        } else {
-            System.out.println("index = " + index + " Not found in array!");
+        int value = 6;
+        boolean isFindValue = false;
+        System.out.println("Find value = " + value);
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == value){
+                if (!isFindValue){
+                    System.out.print("Index: ");
+                }
+                System.out.print(i + "  ");
+                isFindValue = true;
+            }
         }
+        if (!isFindValue){
+            System.out.print("This value not found.");
+        }
+        System.out.println("");
     }
 
     private static void runTask7() {
@@ -390,29 +401,32 @@ public class Tasks2 {
         int size = 4;
         int[][] matrixFirst = new int[size][size];
         int[][] matrixSecond = new int[size][size];
-        int value = 10;
-
+        int[][] matrixSum = new int[size][size];
+        int value = 1120;
         System.out.println("matrixFirst");
-        for (int[] ints : matrixFirst) {
-            value++;
-            for (int anInt : ints) {
-                value++;
-                anInt = value;
-                System.out.print (anInt + " ");
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                matrixFirst[i][j] = value++ ;
+                System.out.print(matrixFirst[i][j] + " ");
             }
             System.out.println("");
         }
         System.out.println("matrixSecond");
-        for (int[] ints : matrixSecond) {
-            value += +2;
-            for (int anInt : ints) {
-                value++;
-                anInt = value;
-                System.out.print (anInt + " ");
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                matrixSecond[i][j] = value++ ;
+                System.out.print(matrixSecond[i][j] + " ");
             }
             System.out.println("");
         }
-        System.out.println("");
+        System.out.println("matrixSum");
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                matrixSum[i][j] = matrixFirst[i][j] + matrixSecond[i][j];
+                System.out.print(matrixSum[i][j] + " ");
+            }
+            System.out.println("");
+        }
     }
 
     private static void runTask20(int[] array) {
