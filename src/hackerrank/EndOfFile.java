@@ -4,12 +4,17 @@ import java.util.Scanner;
 
 public class EndOfFile {
     public static void main(String[] args) {
-        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        /*Read some unknown  lines of input from stdin(System.in) until you reach EOF;
+        each line of input contains a non-empty String.
+        Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         Scanner in = new Scanner(System.in);
-        for(int i = 1; in.hasNext()== true; i++){
+        int i = 1;
+        while(in.hasNext()){
             System.out.println(i + " " + in.nextLine());
+            i++;
         }
         // ctrl+D -- EOF(end of file)
-        //Когда вы читаете stdin, это будет либо при отправке символа EOF (обычно ^ d в Unix), либо в конце файла, если вы используете <перенаправление стилей.
+        // Когда вы читаете stdin, это будет либо при отправке символа EOF (обычно ^ d в Unix), либо в конце файла, если вы используете <перенаправление стилей.
+        // http://qaru.site/questions/16631239/how-to-finish-program-with-scannerhasnext-in-java
     }
 }

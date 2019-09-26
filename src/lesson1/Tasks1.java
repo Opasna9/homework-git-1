@@ -255,7 +255,6 @@ public class Tasks1 {
         System.out.println("\n14. Создайте программу с двумя переменными целого типа, присвойте им значения, если " +
                 "первая переменная больше второй, то увеличьте её значение на 3, иначе увеличьте значение второй " +
                 "переменной на 8. В конце программы выведите значения обоих чисел на экран.");
-        int maxValue = 100;
         int bound = 100;
         int value1 = DataRandom.getRANDOM().nextInt(bound);
         int value2 = DataRandom.getRANDOM().nextInt(bound);
