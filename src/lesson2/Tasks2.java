@@ -2,10 +2,7 @@ package lesson2;
 
 import lesson1.DataPrint;
 import lesson1.DataRandom;
-
-import java.awt.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Tasks2 {
     private static final String ARRAY = "   array = ";
