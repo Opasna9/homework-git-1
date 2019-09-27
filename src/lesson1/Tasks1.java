@@ -6,9 +6,10 @@ public class Tasks1 {
     private static final int DEFAULT_HOURS_VALUE = 24;
     private static final int DEFAULT_MINUTES_VALUE = 60;
     private static final int DEFAULT_SECONDS_VALUE = 60;
+    private static StringBuilder stringBuilder = new StringBuilder();
 
     public static void main(String[] args) {
-        System.out.println("lesson1\n");
+        stringBuilder.append("lesson1\n");
         runTask1();
         runTask2();
         runTask3();
@@ -31,14 +32,17 @@ public class Tasks1 {
     }
 
     private static void runTask1() {
-        System.out.println("1. Напишите программу, которая вычисляет ваш вес на Луне с учетом того, что сила тяжести " +
+        stringBuilder.append("\n1. Напишите программу, которая вычисляет ваш вес на Луне с учетом того, что сила тяжести " +
                 "равна 16% от силы тяжести на Земле.");
         double weight = 42;
         double weightMoon;
         double coefficient = 1 - 0.16;
         weightMoon = weight * coefficient;
-        System.out.println("масса = " + weight);
-        System.out.println("масса на Луне = " + weightMoon);
+        stringBuilder.append("\nмасса = " );
+        stringBuilder.append(weight);
+        stringBuilder.append("\nмасса на Луне = ");
+        stringBuilder.append(weightMoon);
+        System.out.println(stringBuilder.toString());
     }
 
     private static void runTask2() {
