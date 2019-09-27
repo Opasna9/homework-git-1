@@ -12,9 +12,6 @@ public class Tasks2 {
     private static final String DUPLICATE_VALUE = "Duplicate value : ";
     private static final String FIND = "Find : ";
 
-
-
-
     public static void main(String[] args) {
         System.out.println("lesson2\n");
         int length = 20;

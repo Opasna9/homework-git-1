@@ -70,7 +70,7 @@ public class Tasks1 {
         int namber1 = number;
         int reverse = 0;
         while (namber1 != 0) {
-            reverse = reverse * 10 + namber1 % 10; // новое число перевернутое
+            reverse = reverse * 10 + namber1 % 10; // new reverse number
             namber1 = namber1 / 10;
         }
         if (reverse == number) {
