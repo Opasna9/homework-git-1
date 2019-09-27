@@ -8,18 +8,18 @@ public class Ship {
     private String name;
     private int weight;
     private String type;
-    private String dateRelease;
+    private int humanSeats;
 
 
     public Ship() {
     }
 
-    public Ship(int price, String name, int weight, String type, String dateRelease) {
+    public Ship(int price, String name, int weight, String type, int humanSeats) {
         this.price = price;
         this.name = name;
         this.weight = weight;
         this.type = type;
-        this.dateRelease = dateRelease;
+        this.humanSeats = humanSeats;
     }
 
     public int getPrice() {
@@ -54,12 +54,12 @@ public class Ship {
         this.type = type;
     }
 
-    public String getDateRelease() {
-        return dateRelease;
+    public int getHumanSeats() {
+        return humanSeats;
     }
 
-    public void setDateRelease(String dateRelease) {
-        this.dateRelease = dateRelease;
+    public void setHumanSeats(int humanSeats) {
+        this.humanSeats = humanSeats;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class Ship {
         if (weight != ship.weight) return false;
         if (name != null ? !name.equals(ship.name) : ship.name != null) return false;
         if (type != null ? !type.equals(ship.type) : ship.type != null) return false;
-        return dateRelease != null ? dateRelease.equals(ship.dateRelease) : ship.dateRelease == null;
+        return humanSeats != ship.humanSeats;
     }
 
     @Override
@@ -82,7 +82,7 @@ public class Ship {
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + weight;
         result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + (dateRelease != null ? dateRelease.hashCode() : 0);
+        result = 31 * result + humanSeats;
         return result;
     }
 
@@ -93,7 +93,7 @@ public class Ship {
                 ", name='" + name + '\'' +
                 ", weight=" + weight +
                 ", type='" + type + '\'' +
-                ", dateRelease='" + dateRelease + '\'' +
+                ", humanSeats='" + humanSeats + '\'' +
                 '}';
     }
 }
