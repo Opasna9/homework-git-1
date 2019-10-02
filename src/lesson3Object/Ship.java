@@ -1,4 +1,4 @@
-package lesson3;
+package lesson3Object;
 
 /**
  * Created by user on 26.09.2019.
@@ -63,29 +63,17 @@ public class Ship {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o){
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
+        if (this == o){ return true; }
+        if (o == null || getClass() != o.getClass()) { return false; }
         Ship ship = (Ship) o;
-        if (price != ship.price) {
-            return false;
-        }
-        if (weight != ship.weight) {
-            return false;
-        }
-        if (name != null ? !name.equals(ship.name) : ship.name != null) {
-            return false;
-        }
-        if (type != null ? !type.equals(ship.type) : ship.type != null) {
-            return false;
-        }
+        if (price != ship.price) { return false; }
+        if (weight != ship.weight) { return false; }
+        if (name != null ? !name.equals(ship.name) : ship.name != null) { return false; }
+        if (type != null ? !type.equals(ship.type) : ship.type != null) { return false; }
         return humanSeats != ship.humanSeats;
     }
 
-        @Override
+    @Override
     public int hashCode() {
         int result = price;
         result = 31 * result + (name != null ? name.hashCode() : 0);

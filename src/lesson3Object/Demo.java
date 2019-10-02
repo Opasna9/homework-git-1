@@ -1,4 +1,4 @@
-package lesson3;
+package lesson3Object;
 
 import org.apache.commons.lang3.RandomStringUtils;
 

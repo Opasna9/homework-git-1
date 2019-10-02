@@ -1,7 +1,7 @@
-package lesson2;
+package lesson2Array;
 
-import lesson1.DataPrint;
-import lesson1.DataRandom;
+import lesson1Operator.DataPrint;
+import lesson1Operator.DataRandom;
 import java.util.ArrayList;
 
 public class Tasks2 {
@@ -13,7 +13,7 @@ public class Tasks2 {
     private static final String FIND = "Find : ";
 
     public static void main(String[] args) {
-        System.out.println("lesson2\n");
+        System.out.println("lesson2Array\n");
         int length = 20;
         int bound = 100;
         int[] array = DataRandom.createRandomArrayInt(length, bound);

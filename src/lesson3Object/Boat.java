@@ -1,4 +1,4 @@
-package lesson3;
+package lesson3Object;
 
 /**
  * Created by user on 01.10.2019.

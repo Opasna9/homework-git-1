@@ -1,6 +1,4 @@
-package lesson1;
-
-import java.util.Random;
+package lesson1Operator;
 
 public class Tasks1 {
     private static final int DEFAULT_HOURS_VALUE = 24;
@@ -9,7 +7,7 @@ public class Tasks1 {
     private static StringBuilder stringBuilder = new StringBuilder();
 
     public static void main(String[] args) {
-        stringBuilder.append("lesson1\n");
+        stringBuilder.append("lesson1Operator\n");
         runTask1();
         runTask2();
         runTask3();

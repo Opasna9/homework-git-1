@@ -1,6 +1,6 @@
-package lesson4;
+package lesson4Extends;
 
-import lesson3.Boat;
+import lesson3Object.Boat;
 import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.ArrayList;
