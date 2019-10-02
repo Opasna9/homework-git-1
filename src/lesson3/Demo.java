@@ -14,8 +14,8 @@ public class Demo {
     public static void main(String[] args) {
         List<Ship> ships = new ArrayList<>();
         List<Ship> newShips;
-
-
+        int weightMax = 1500;
+        int weightMin = 10;
 
         for (int i = 0; i < 10; i++) {
             Ship ship = new Ship();
@@ -26,7 +26,6 @@ public class Demo {
             ship.setWeight(parseInt(RandomStringUtils.randomNumeric(4)));
             ships.add(ship);
         }
-
 
         for (Ship ship : ships) {
             System.out.println(ship.toString());
@@ -47,12 +46,17 @@ public class Demo {
         }
 
         System.out.println("");
-        newShips = filterShipListByWeight(ships,1500,10);
+        newShips = filterShipListByWeight(ships,weightMax,weightMin);
         for (Ship ship : newShips) {
             System.out.println(ship.toString());
         }
     }
 
+    /**
+     * Sort method Bubble for List<Ship> by field
+     * @param list list objects Ship for sort
+     * @param field name get method for sort
+     */
     private static void sortBubbleShipList(List<Ship> list, String field) {
         System.out.println("sortBubbleShipArray ships " + field);
         Ship temp;
@@ -87,6 +91,13 @@ public class Demo {
         }
     }
 
+    /**
+     * Filter for List<Ship> by field weight
+     * @param list list objects Ship for filter
+     * @param weightMax max value weight
+     * @param weightMin min value weight
+     * @return new list after filter
+     */
     private static List<Ship> filterShipListByWeight(List<Ship> list, int weightMax, int weightMin) {
         System.out.println("filterShipListByWeight ships: weightMax = " + weightMax + " weightMin = " + weightMin);
         List<Ship> ships = new ArrayList<>();
