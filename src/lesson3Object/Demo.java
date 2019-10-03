@@ -7,9 +7,6 @@ import java.util.*;
 import static java.lang.Integer.parseInt;
 import static java.util.Comparator.comparing;
 
-/**
- * Created by user on 26.09.2019.
- */
 public class Demo {
     public static void main(String[] args) {
         List<Ship> ships = new ArrayList<>();
@@ -54,6 +51,7 @@ public class Demo {
 
     /**
      * Sort method Bubble for List<Ship> by field
+     *
      * @param list list objects Ship for sort
      * @param field name get method for sort
      */
@@ -92,7 +90,8 @@ public class Demo {
     }
 
     /**
-     * Filter for List<Ship> by field weight
+     * Returns List<Ship> filtered for by field weight
+     *
      * @param list list objects Ship for filter
      * @param weightMax max value weight
      * @param weightMin min value weight

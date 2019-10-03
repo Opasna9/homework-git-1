@@ -10,9 +10,7 @@ public class Test implements Cloneable{
         System.out.println("fwqqwfqwf");
         System.out.println("fwqqwfqwf");
         System.out.print("fwqqwfqwf");
-        int[] ints = {1,2,3,4,5,6};
-        System.out.println(ints.toString());
-        Array[] arrays = null;
+        
 
     }
 

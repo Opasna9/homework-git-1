@@ -1,6 +1,6 @@
 package test;
 
-public class TestMemory {
+public class MemoryTest {
     public static void main(String[] args) {
         X x = new X();
         Y y = new Y();

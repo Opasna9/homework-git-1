@@ -1,6 +1,6 @@
 package test;
 
-public class TestPrintf {
+public class PrintfTest {
     public static void main(String[] args) {
         System.out.printf("%7d%10.2f%nhellow!%10s%n", 6666, 55.789, "Sam");
         System.out.println("");

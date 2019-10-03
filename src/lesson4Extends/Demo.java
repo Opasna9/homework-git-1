@@ -8,10 +8,6 @@ import java.util.List;
 
 import static java.lang.Integer.parseInt;
 
-/**
- * Created by user on 01.10.2019.
- */
-
 public class Demo {
     public static void main(String[] args) {
         List<Boat> boats = new ArrayList<>();

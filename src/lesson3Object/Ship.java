@@ -1,8 +1,5 @@
 package lesson3Object;
 
-/**
- * Created by user on 26.09.2019.
- */
 public class Ship {
     private int price;
     private String name;

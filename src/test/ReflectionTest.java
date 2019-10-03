@@ -1,8 +1,8 @@
-package reflection;
+package test;
 
 import java.lang.reflect.*;
 
-public class Main {
+public class ReflectionTest {
     public static void main(String[] args) throws IllegalAccessException, InvocationTargetException, ClassNotFoundException {
         SomeClass someClass = new SomeClass();
 

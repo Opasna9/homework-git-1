@@ -1,15 +1,12 @@
 package lesson3Object;
 
-/**
- * Created by user on 01.10.2019.
- */
 public class Boat extends Ship{
     private static int count;
     private int length;
     private int width;
 
     public Boat(){
-
+        count++;
     }
 
     public Boat(int length, int width) {
