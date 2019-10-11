@@ -43,7 +43,7 @@ public class Demo {
         }
 
         System.out.println("");
-        newShips = filterShipListByWeight(ships,weightMax,weightMin);
+        newShips = filterShipListByWeight(ships, weightMax, weightMin);
         for (Ship ship : newShips) {
             System.out.println(ship.toString());
         }
@@ -52,7 +52,7 @@ public class Demo {
     /**
      * Sort method Bubble for List<Ship> by field
      *
-     * @param list list objects Ship for sort
+     * @param list  list objects Ship for sort
      * @param field name get method for sort
      */
     private static void sortBubbleShipList(List<Ship> list, String field) {
@@ -92,7 +92,7 @@ public class Demo {
     /**
      * Returns List<Ship> filtered for by field weight
      *
-     * @param list list objects Ship for filter
+     * @param list      list objects Ship for filter
      * @param weightMax max value weight
      * @param weightMin min value weight
      * @return new list after filter

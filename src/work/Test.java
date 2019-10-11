@@ -10,7 +10,6 @@ public class Test implements Cloneable{
         System.out.println("fwqqwfqwf");
         System.out.println("fwqqwfqwf");
         System.out.print("fwqqwfqwf");
-        
 
     }
 

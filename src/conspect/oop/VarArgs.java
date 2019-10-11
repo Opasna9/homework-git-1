@@ -7,7 +7,7 @@ public class VarArgs {
         Integer[] i = {2, 4, 5, 6, 10};
         System.out.println("N2 = " + getArgCount(i));
 
-        //System.out.println("N2 = " + VarArgs.getArgCount(i,i)); -?
+        //System.out.println("N2 = " + VarArgs.getArgCount(i,i)); //?
 
 
     }

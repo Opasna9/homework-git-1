@@ -1,6 +1,10 @@
 package lesson1Operator;
 
-public class Tasks1 {
+import org.apache.commons.math3.util.Precision;
+import utils.ArrayUtils;
+import utils.RandomUtils;
+
+public class Demo {
     private static final int DEFAULT_HOURS_VALUE = 24;
     private static final int DEFAULT_MINUTES_VALUE = 60;
     private static final int DEFAULT_SECONDS_VALUE = 60;
@@ -36,7 +40,7 @@ public class Tasks1 {
         double weightMoon;
         double coefficient = 1 - 0.16;
         weightMoon = weight * coefficient;
-        stringBuilder.append("\nмасса = " );
+        stringBuilder.append("\nмасса = ");
         stringBuilder.append(weight);
         stringBuilder.append("\nмасса на Луне = ");
         stringBuilder.append(weightMoon);
@@ -47,17 +51,18 @@ public class Tasks1 {
         System.out.println("\n2. Напишите метод, который будет увеличивать каждый элемент массива на 10%.");
         int length = 4;
         int bound = 100;
-        double[] array = DataRandom.createRandomArray(length,bound);
+        int scaleRound = 2;
+        double[] array = RandomUtils.createRandomArrayDouble(length, bound, scaleRound);
         System.out.print("исходный массив рандомных чисел = ");
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         increaseBy10(array); // метод, который увеличивает каждый элемент массива на 10%
         System.out.print("каждый элемент массива увеличен на 10% = ");
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
     }
 
     private static void increaseBy10(double[] array) {
         for (int i = 0; i < array.length; i++) {
-            array[i] = Math.round(array[i] * 1.1);
+            array[i] = Precision.round(array[i] * 1.1, 2);
         }
     }
 
@@ -181,11 +186,11 @@ public class Tasks1 {
         System.out.println("\n10. Напишите программу с тремя переменными целого типа, первым двум присвойте значения, " +
                 "а третьей переменной присвойте их сумму. Выведете значение третей переменной на экран.");
         int bound = 100;
-        int firstInteger = DataRandom.getRANDOM().nextInt(bound);;
-        int secondInteger = DataRandom.getRANDOM().nextInt(bound);;
+        int firstInteger = RandomUtils.getRANDOM().nextInt(bound);
+        int secondInteger = RandomUtils.getRANDOM().nextInt(bound);
         int sum;
         sum = firstInteger + secondInteger;
-        System.out.println(firstInteger + " + " + secondInteger + " = " + sum );
+        System.out.println(firstInteger + " + " + secondInteger + " = " + sum);
     }
 
     private static void runTask11() {
@@ -258,8 +263,8 @@ public class Tasks1 {
                 "первая переменная больше второй, то увеличьте её значение на 3, иначе увеличьте значение второй " +
                 "переменной на 8. В конце программы выведите значения обоих чисел на экран.");
         int bound = 100;
-        int value1 = DataRandom.getRANDOM().nextInt(bound);
-        int value2 = DataRandom.getRANDOM().nextInt(bound);
+        int value1 = RandomUtils.getRANDOM().nextInt(bound);
+        int value2 = RandomUtils.getRANDOM().nextInt(bound);
         System.out.println("init value1 = " + value1 + " value2 = " + value2);
         if (value1 > value2) {
             value1 += 3;
@@ -314,13 +319,14 @@ public class Tasks1 {
         System.out.println("\n17. Все элементы массива поделить на значение наибольшего элемента этого массива.");
         int length = 6;
         int bound = 100;
-        double[] array = DataRandom.createRandomArray(length,bound);
+        int scaleRound = 2;
+        double[] array = RandomUtils.createRandomArrayDouble(length, bound, scaleRound);
         System.out.print("исходный массив рандомных чисел = ");
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         double maxElement = findMaxElement(array);
         System.out.print("элементы массива поделены на значение максимального = ");
         divisionByMaxElement(array, maxElement);
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
     }
 
     private static double findMaxElement(double[] array) {
@@ -335,7 +341,7 @@ public class Tasks1 {
 
     private static void divisionByMaxElement(double[] array, double maxElement) {
         for (int i = 0; i < array.length; i++) {
-            array[i] = (double) Math.round(array[i] / maxElement * 10000) / 10000;
+            array[i] = Precision.round(array[i] / maxElement, 5);
         }
     }
 
@@ -343,10 +349,10 @@ public class Tasks1 {
         System.out.println("\n18. Напишите метод переводящий рубли в доллары по заданному курсу. В качестве аргументов " +
                 "укажите кол-во рублей и курс.");
         double usdRate = 2.034;
-        double byn = 1000;
+        double byn = 1000d;
         double usd;
         System.out.println("usdRate = " + usdRate + " byn = " + byn);
-        usd = Math.round(byn / usdRate * 100) / 100d;
+        usd = Precision.round(byn / usdRate,2);
         System.out.println("usd = " + usd);
     }
 

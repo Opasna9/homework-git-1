@@ -1,25 +1,22 @@
 package lesson5Abstract;
 
 import lesson3Object.Ship;
-import utils.ShipUtil;
+import utils.ShipUtils;
 
 import java.util.List;
 
-/**
- * Created by user on 08.10.2019.
- */
 public class Demo {
     public static void main(String[] args) {
-        List<Ship> ships = ShipUtil.generateShips(10);
+        List<Ship> ships = ShipUtils.generateShips(10);
         int i = 1;
 
-        ShipUtil.printShips(ships);
+        ShipUtils.printShips(ships);
 
         for (Ship ship : ships) {
-            System.out.println("---" + i + "---");
-            System.out.println(ship);
+            System.out.println("ship" + i + " = " + ship);
+            System.out.print("ship.run() ----> ");
             ship.run();
-            System.out.println("Cost = " + ship.generateSellPrice());
+            System.out.println("ship.generateSellPrice() ----> " + ship.generateSellPrice());
             i++;
         }
     }

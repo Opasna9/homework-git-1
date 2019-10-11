@@ -8,9 +8,9 @@ public class StdinStdout {
         Scanner scan = new Scanner(System.in);
         int i = scan.nextInt();
         double d = scan.nextDouble();
-//        scan.nextLine(); // ???
-//        String s = scan.nextLine();
-        String s = scan.next();
+        scan.nextLine(); // ???
+        String s = scan.nextLine();
+//        String s = scan.next(); // до пробела
         System.out.println("Int: " + i);
         System.out.println("Double: " + d);
         System.out.print("String: " + s);

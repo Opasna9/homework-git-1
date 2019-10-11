@@ -1,6 +1,6 @@
 package lesson3Object;
 
-public class Ship extends Transport implements ShipFunctionality, TransportFunctionality{
+public class Ship extends Transport implements ShipFunctionality, TransportFunctionality {
     private int price;
     private String name;
     private int weight;

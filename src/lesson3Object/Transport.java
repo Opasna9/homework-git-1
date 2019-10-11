@@ -1,10 +1,8 @@
 package lesson3Object;
 
-/**
- * Created by user on 08.10.2019.
- */
 public abstract class Transport {
     private boolean isMilitary;
+
     public abstract void run();
 
     public Transport() {

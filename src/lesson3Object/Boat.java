@@ -1,11 +1,11 @@
 package lesson3Object;
 
-public class Boat extends Ship{
+public class Boat extends Ship {
     private static int count;
     private int length;
     private int width;
 
-    public Boat(){
+    public Boat() {
         count++;
     }
 
@@ -68,7 +68,7 @@ public class Boat extends Ship{
 
     @Override
     public String toString() {
-        return super.toString() +" Boat{" +
+        return super.toString() + " Boat{" +
                 "length=" + length +
                 ", width=" + width +
                 '}';

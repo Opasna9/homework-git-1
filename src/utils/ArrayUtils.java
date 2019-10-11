@@ -1,6 +1,6 @@
-package lesson1Operator;
+package utils;
 
-public class DataPrint {
+public class ArrayUtils {
 
     public static void printArray(double[] array) {
         Object[] objects = new Object[array.length];

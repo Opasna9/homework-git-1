@@ -1,10 +1,11 @@
 package lesson2Array;
 
-import lesson1Operator.DataPrint;
-import lesson1Operator.DataRandom;
+import utils.ArrayUtils;
+import utils.RandomUtils;
+
 import java.util.ArrayList;
 
-public class Tasks2 {
+public class Demo {
     private static final String ARRAY = "   array = ";
     private static final String NEW_ARRAY = "newArray = ";
     private static final String MIN_VALUE = "minValue = ";
@@ -16,7 +17,7 @@ public class Tasks2 {
         System.out.println("lesson2Array\n");
         int length = 20;
         int bound = 100;
-        int[] array = DataRandom.createRandomArrayInt(length, bound);
+        int[] array = RandomUtils.createRandomArrayInt(length, bound);
         runTask1(array);
         runTask2(array);
         runTask3();
@@ -41,10 +42,10 @@ public class Tasks2 {
 
     private static void runTask1(int[] array) {
         System.out.println("Task 1. Write a Java program to sort a numeric array and a string array.");
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         sortBubbleNumericArray(array);
         String[] arrayStr = {"Io", "Sven", "Tiny", "Void", "Naga", "Riki", "CM", "Lina"};
-        DataPrint.printArray(arrayStr);
+        ArrayUtils.printArray(arrayStr);
         sortBubbleStringArray(arrayStr);
     }
 
@@ -59,7 +60,7 @@ public class Tasks2 {
                 }
             }
         }
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
     }
 
     private static void sortBubbleStringArray(String[] array) {
@@ -73,13 +74,13 @@ public class Tasks2 {
                 }
             }
         }
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
     }
 
     private static void runTask2(int[] array) {
         System.out.println("\nTask 2. Write a Java program to sum values of an array.");
         int sum = 0;
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         for (int i : array) {
             sum += i;
         }
@@ -93,7 +94,7 @@ public class Tasks2 {
     private static void runTask4(int[] array) {
         System.out.println("\nTask 4.  Write a Java program to calculate the average value of array elements.");
         double averageValue = 0;
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         for (int i : array) {
             averageValue += i;
         }
@@ -104,10 +105,10 @@ public class Tasks2 {
         System.out.println("\nTask 5.  Write a Java program to test if an array contains a specific value.");
         int length = 8;
         int bound = 10;
-        int[] array = DataRandom.createRandomArrayInt(length, bound);
+        int[] array = RandomUtils.createRandomArrayInt(length, bound);
         int value = 5;
         boolean containsSpecificValue = false;
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         for (int i : array) {
             if (i == value) {
                 containsSpecificValue = true;
@@ -123,20 +124,20 @@ public class Tasks2 {
     private static void runTask6() {
         System.out.println("\nTask 6.  Write a Java program to find the index of an array element.");
         int[] array = {5, 0, 5, 5, 6, 7, 6, 4, 5};
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         int value = 6;
         boolean isFindValue = false;
         System.out.println("Find value = " + value);
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == value){
-                if (!isFindValue){
+            if (array[i] == value) {
+                if (!isFindValue) {
                     System.out.print("Index: ");
                 }
                 System.out.print(i + "  ");
                 isFindValue = true;
             }
         }
-        if (!isFindValue){
+        if (!isFindValue) {
             System.out.print("This value not found.");
         }
         System.out.println("");
@@ -148,7 +149,7 @@ public class Tasks2 {
         int value = 5;
         System.out.println("remove value = " + value);
         System.out.print(ARRAY);
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         int j = 0;
         int countWithoutValue = 0;
         for (int i : array) {
@@ -164,19 +165,19 @@ public class Tasks2 {
             }
         }
         System.out.print(NEW_ARRAY);
-        DataPrint.printArray(newArray);
+        ArrayUtils.printArray(newArray);
     }
 
     private static void runTask8(int[] array) {
         System.out.println("\nTask 8.  Write a Java program to copy an array by iterating the array.");
         System.out.print(ARRAY);
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         int[] newArray = new int[array.length];
         for (int i = 0; i < array.length; i++) {
             newArray[i] = array[i];
         }
         System.out.print(NEW_ARRAY);
-        DataPrint.printArray(newArray);
+        ArrayUtils.printArray(newArray);
     }
 
     private static void runTask9(int[] array) {
@@ -186,7 +187,7 @@ public class Tasks2 {
         int j = 0;
         System.out.println("insert an element index = " + index + " value = " + value);
         System.out.print(ARRAY);
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         int[] newArray = new int[array.length + 1];
         for (int i = 0; i < array.length; i++) {
             if (i == index) {
@@ -200,12 +201,12 @@ public class Tasks2 {
             }
         }
         System.out.print(NEW_ARRAY);
-        DataPrint.printArray(newArray);
+        ArrayUtils.printArray(newArray);
     }
 
     private static void runTask10(int[] array) {
         System.out.println("\nTask 10. Write a Java program to find the maximum and minimum value of an array.");
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         int maxValue = array[0];
         int minValue = array[0];
         for (int i : array) {
@@ -223,7 +224,7 @@ public class Tasks2 {
     private static void runTask11(int[] array) {
         System.out.println("\nTask 11. Write a Java program to reverse an array of integer values.");
         System.out.print(ARRAY);
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         int[] newArray = new int[array.length];
         int j = 0;
         for (int i = array.length - 1; i >= 0; i--) {
@@ -231,13 +232,13 @@ public class Tasks2 {
             j++;
         }
         System.out.print(NEW_ARRAY);
-        DataPrint.printArray(newArray);
+        ArrayUtils.printArray(newArray);
     }
 
     private static void runTask12() {
         System.out.println("\nTask 12. Write a Java program to find the duplicate values of an array of integer values.");
         int[] array = {5, 0, 5, 5, 6, 7, 8, 9, 4, 5, 5, 4, 9, 66, 66};
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         sortBubbleNumericArray(array);
         String result = "";
         String distinctResult = "";
@@ -257,7 +258,7 @@ public class Tasks2 {
     private static void runTask13() {
         System.out.println("\nTask 13. Write a Java program to find the duplicate values of an array of string values.");
         String[] array = {"BYN", "USD", "EUR", "USD", "USD", "RUB", "RUB"};
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         sortBubbleStringArray(array);
         String result = "";
         String distinctResult = "";
@@ -319,7 +320,7 @@ public class Tasks2 {
     private static void runTask16() {
         System.out.println("\nTask 16. Write a Java program to remove duplicate elements from an array.");
         int[] array = {1, 5, 0, 5, 5, 6, 7, 8, 9, 4, 5, 5, 4, 9, 9};
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         int[] newArray = new int[array.length];
         int distinctIntegers = 0;
         for (int i = 0; i < array.length; i++) {
@@ -333,7 +334,7 @@ public class Tasks2 {
                 newArray[distinctIntegers++] = array[i];
             }
         }
-        DataPrint.printArray(newArray);
+        ArrayUtils.printArray(newArray);
     }
 
     private static void runTask17(int[] array) {
@@ -341,14 +342,14 @@ public class Tasks2 {
         int minValue = array[0];
         int maxValue = array[0];
         int secondMaxValue = 0;
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         for (int anArray : array) {
-            if (anArray < minValue){
+            if (anArray < minValue) {
                 minValue = anArray;
             }
         }
         for (int anArray : array) {
-            if (anArray > maxValue){
+            if (anArray > maxValue) {
                 maxValue = anArray;
             }
         }
@@ -356,7 +357,7 @@ public class Tasks2 {
         System.out.println(MAX_VALUE + maxValue);
         secondMaxValue = minValue;
         for (int anArray : array) {
-            if ((anArray != maxValue) && (anArray > minValue) && (anArray > secondMaxValue)){
+            if ((anArray != maxValue) && (anArray > minValue) && (anArray > secondMaxValue)) {
                 secondMaxValue = anArray;
             }
         }
@@ -368,14 +369,14 @@ public class Tasks2 {
         int minValue = array[0];
         int maxValue = array[0];
         int secondMinValue = 0;
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         for (int anArray : array) {
-            if (anArray < minValue){
+            if (anArray < minValue) {
                 minValue = anArray;
             }
         }
         for (int anArray : array) {
-            if (anArray > maxValue){
+            if (anArray > maxValue) {
                 maxValue = anArray;
             }
         }
@@ -383,7 +384,7 @@ public class Tasks2 {
         System.out.println(MAX_VALUE + maxValue);
         secondMinValue = maxValue;
         for (int anArray : array) {
-            if ((anArray != minValue)&&(anArray < maxValue) && (anArray < secondMinValue)){
+            if ((anArray != minValue) && (anArray < maxValue) && (anArray < secondMinValue)) {
                 secondMinValue = anArray;
             }
         }
@@ -400,7 +401,7 @@ public class Tasks2 {
         System.out.println("matrixFirst");
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                matrixFirst[i][j] = value++ ;
+                matrixFirst[i][j] = value++;
                 System.out.print(matrixFirst[i][j] + " ");
             }
             System.out.println("");
@@ -408,7 +409,7 @@ public class Tasks2 {
         System.out.println("matrixSecond");
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
-                matrixSecond[i][j] = value++ ;
+                matrixSecond[i][j] = value++;
                 System.out.print(matrixSecond[i][j] + " ");
             }
             System.out.println("");
@@ -425,7 +426,7 @@ public class Tasks2 {
 
     private static void runTask20(int[] array) {
         System.out.println("\nTask 20. Write a Java program to convert an array to ArrayList.");
-        DataPrint.printArray(array);
+        ArrayUtils.printArray(array);
         ArrayList<Integer> arrayList = new ArrayList<>();
         for (int i : array) {
             arrayList.add(i);

@@ -9,10 +9,14 @@ import java.util.List;
 
 import static java.lang.Integer.parseInt;
 
-/**
- * Created by user on 08.10.2019.
- */
-public class ShipUtil {
+public class ShipUtils {
+
+    /**
+     * Returns an array of Ship objects with random fields
+     *
+     * @param countShip - number of objects
+     * @return - array of objects Ship
+     */
     public static List<Ship> generateShips(int countShip){
         List<Ship> ships = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
@@ -28,6 +32,11 @@ public class ShipUtil {
         return ships;
     }
 
+    /**
+     * Print a List of Ship objects
+     *
+     * @param ships - List of Ship objects
+     */
     public static void printShips(List<Ship> ships){
         for (Ship ship : ships) {
             System.out.println(ship);
