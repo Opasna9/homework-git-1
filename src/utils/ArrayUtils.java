@@ -37,4 +37,34 @@ public class ArrayUtils {
         System.out.println("}");
     }
 
+    public static int[] sortBubbleArray(int[] array) {
+        int[] result = array.clone();
+        int temp = 0;
+        for (int i = 0; i < result.length; i++) {
+            for (int j = (result.length - 1); j >= (i + 1); j--) {
+                if (result[j] < result[j - 1]) {
+                    temp = result[j];
+                    result[j] = result[j - 1];
+                    result[j - 1] = temp;
+                }
+            }
+        }
+        return result;
+    }
+
+    public static String[] sortBubbleArray(String[] array) {
+        String[] result = array.clone();
+        String temp;
+        for (int i = 0; i < result.length; i++) {
+            for (int j = (result.length - 1); j >= (i + 1); j--) {
+                if (result[j - 1].compareTo(result[j]) > 0) {
+                    temp = result[j];
+                    result[j] = result[j - 1];
+                    result[j - 1] = temp;
+                }
+            }
+        }
+        return result;
+    }
+
 }

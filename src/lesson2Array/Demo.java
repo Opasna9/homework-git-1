@@ -5,13 +5,9 @@ import utils.RandomUtils;
 
 import java.util.ArrayList;
 
+import static utils.ArrayUtils.sortBubbleArray;
+
 public class Demo {
-    private static final String ARRAY = "   array = ";
-    private static final String NEW_ARRAY = "newArray = ";
-    private static final String MIN_VALUE = "minValue = ";
-    private static final String MAX_VALUE = "maxValue = ";
-    private static final String DUPLICATE_VALUE = "Duplicate value : ";
-    private static final String FIND = "Find : ";
 
     public static void main(String[] args) {
         System.out.println("lesson2Array\n");
@@ -43,39 +39,15 @@ public class Demo {
     private static void runTask1(int[] array) {
         System.out.println("Task 1. Write a Java program to sort a numeric array and a string array.");
         ArrayUtils.printArray(array);
-        sortBubbleNumericArray(array);
+        int[] arrayIntSort = sortBubbleArray(array);
+        ArrayUtils.printArray(arrayIntSort);
+
         String[] arrayStr = {"Io", "Sven", "Tiny", "Void", "Naga", "Riki", "CM", "Lina"};
         ArrayUtils.printArray(arrayStr);
-        sortBubbleStringArray(arrayStr);
+        String[] arrayStrSort = sortBubbleArray(arrayStr);
+        ArrayUtils.printArray(arrayStrSort);
     }
 
-    private static void sortBubbleNumericArray(int[] array) {
-        int temp = 0;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = (array.length - 1); j >= (i + 1); j--) {
-                if (array[j] < array[j - 1]) {
-                    temp = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = temp;
-                }
-            }
-        }
-        ArrayUtils.printArray(array);
-    }
-
-    private static void sortBubbleStringArray(String[] array) {
-        String temp;
-        for (int i = 0; i < array.length; i++) {
-            for (int j = (array.length - 1); j >= (i + 1); j--) {
-                if (array[j - 1].compareTo(array[j]) > 0) {
-                    temp = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = temp;
-                }
-            }
-        }
-        ArrayUtils.printArray(array);
-    }
 
     private static void runTask2(int[] array) {
         System.out.println("\nTask 2. Write a Java program to sum values of an array.");
@@ -148,7 +120,7 @@ public class Demo {
         int[] array = {5, 0, 5, 5, 6, 7, 8, 4, 5};
         int value = 5;
         System.out.println("remove value = " + value);
-        System.out.print(ARRAY);
+        System.out.print("   array = ");
         ArrayUtils.printArray(array);
         int j = 0;
         int countWithoutValue = 0;
@@ -164,19 +136,19 @@ public class Demo {
                 j++;
             }
         }
-        System.out.print(NEW_ARRAY);
+        System.out.print("newArray = ");
         ArrayUtils.printArray(newArray);
     }
 
     private static void runTask8(int[] array) {
         System.out.println("\nTask 8.  Write a Java program to copy an array by iterating the array.");
-        System.out.print(ARRAY);
+        System.out.print("   array = ");
         ArrayUtils.printArray(array);
         int[] newArray = new int[array.length];
         for (int i = 0; i < array.length; i++) {
             newArray[i] = array[i];
         }
-        System.out.print(NEW_ARRAY);
+        System.out.print("newArray = ");
         ArrayUtils.printArray(newArray);
     }
 
@@ -186,7 +158,7 @@ public class Demo {
         int value = 111;
         int j = 0;
         System.out.println("insert an element index = " + index + " value = " + value);
-        System.out.print(ARRAY);
+        System.out.print("   array = ");
         ArrayUtils.printArray(array);
         int[] newArray = new int[array.length + 1];
         for (int i = 0; i < array.length; i++) {
@@ -200,7 +172,7 @@ public class Demo {
                 j++;
             }
         }
-        System.out.print(NEW_ARRAY);
+        System.out.print("newArray = ");
         ArrayUtils.printArray(newArray);
     }
 
@@ -217,13 +189,13 @@ public class Demo {
                 minValue = i;
             }
         }
-        System.out.println(MIN_VALUE + minValue);
-        System.out.println(MAX_VALUE + maxValue);
+        System.out.println("minValue = " + minValue);
+        System.out.println("maxValue = " + maxValue);
     }
 
     private static void runTask11(int[] array) {
         System.out.println("\nTask 11. Write a Java program to reverse an array of integer values.");
-        System.out.print(ARRAY);
+        System.out.print("   array = ");
         ArrayUtils.printArray(array);
         int[] newArray = new int[array.length];
         int j = 0;
@@ -231,7 +203,7 @@ public class Demo {
             newArray[j] = array[i];
             j++;
         }
-        System.out.print(NEW_ARRAY);
+        System.out.print("newArray = ");
         ArrayUtils.printArray(newArray);
     }
 
@@ -239,13 +211,13 @@ public class Demo {
         System.out.println("\nTask 12. Write a Java program to find the duplicate values of an array of integer values.");
         int[] array = {5, 0, 5, 5, 6, 7, 8, 9, 4, 5, 5, 4, 9, 66, 66};
         ArrayUtils.printArray(array);
-        sortBubbleNumericArray(array);
+        array = sortBubbleArray(array);
         String result = "";
         String distinctResult = "";
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = i + 1; j < array.length; j++) {
                 if ((array[i] == array[j]) && (i != j)) {
-                    result = DUPLICATE_VALUE + array[i];
+                    result = "Duplicate value : " + array[i];
                     if (!distinctResult.equals(result)) {
                         distinctResult = result;
                         System.out.println(distinctResult);
@@ -259,13 +231,13 @@ public class Demo {
         System.out.println("\nTask 13. Write a Java program to find the duplicate values of an array of string values.");
         String[] array = {"BYN", "USD", "EUR", "USD", "USD", "RUB", "RUB"};
         ArrayUtils.printArray(array);
-        sortBubbleStringArray(array);
+        array = sortBubbleArray(array);
         String result = "";
         String distinctResult = "";
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = i + 1; j < array.length; j++) {
                 if ((array[i].equals(array[j])) && (i != j)) {
-                    result = DUPLICATE_VALUE + array[i];
+                    result = "Duplicate value : " + array[i];
                     if (!distinctResult.equals(result)) {
                         distinctResult = result;
                         System.out.println(distinctResult);
@@ -279,14 +251,16 @@ public class Demo {
         System.out.println("\nTask 14. Write a Java program to find the common elements between two arrays (string values).");
         String[] arrayFirst = {"Io", "Sven", "Tiny", "Void", "Void", "Mirana", "Riki", "CM", "Lina"};
         String[] arraySecond = {"Enigma", "Oracle", "Sven", "Lion", "Void", "Mirana", "Rubick", "Puck", "Zeus"};
-        sortBubbleStringArray(arrayFirst);
-        sortBubbleStringArray(arraySecond);
+        arrayFirst = sortBubbleArray(arrayFirst);
+        arraySecond = sortBubbleArray(arraySecond);
+        ArrayUtils.printArray(arrayFirst);
+        ArrayUtils.printArray(arraySecond);
         String result = "";
         String distinctResult = "";
         for (String elementArrayFirst : arrayFirst) {
             for (String elementArraySecond : arraySecond) {
                 if (elementArrayFirst.equals(elementArraySecond)) {
-                    result = FIND + elementArrayFirst;
+                    result = "Find : " + elementArrayFirst;
                     if (!distinctResult.equals(result)) {
                         distinctResult = result;
                         System.out.println(distinctResult);
@@ -300,14 +274,16 @@ public class Demo {
         System.out.println("\nTask 15. Write a Java program to find the common elements between two arrays of integers.");
         int[] arrayFirst = {2, 4, 6, 7, 8, 3, 2, 4, 66, 8};
         int[] arraySecond = {1, 2, 67, 55, 8, 0, 5, 5, 4};
-        sortBubbleNumericArray(arrayFirst);
-        sortBubbleNumericArray(arraySecond);
+        arrayFirst = sortBubbleArray(arrayFirst);
+        arraySecond = sortBubbleArray(arraySecond);
+        ArrayUtils.printArray(arrayFirst);
+        ArrayUtils.printArray(arraySecond);
         String result = "";
         String distinctResult = "";
         for (int elementArrayFirst : arrayFirst) {
             for (int elementArraySecond : arraySecond) {
                 if (elementArrayFirst == elementArraySecond) {
-                    result = FIND + elementArrayFirst;
+                    result = "Find : " + elementArrayFirst;
                     if (!distinctResult.equals(result)) {
                         distinctResult = result;
                         System.out.println(distinctResult);
@@ -353,8 +329,8 @@ public class Demo {
                 maxValue = anArray;
             }
         }
-        System.out.println(MIN_VALUE + minValue);
-        System.out.println(MAX_VALUE + maxValue);
+        System.out.println("minValue = " + minValue);
+        System.out.println("maxValue = " + maxValue);
         secondMaxValue = minValue;
         for (int anArray : array) {
             if ((anArray != maxValue) && (anArray > minValue) && (anArray > secondMaxValue)) {
@@ -380,8 +356,8 @@ public class Demo {
                 maxValue = anArray;
             }
         }
-        System.out.println(MIN_VALUE + minValue);
-        System.out.println(MAX_VALUE + maxValue);
+        System.out.println("minValue = " + minValue);
+        System.out.println("maxValue = " + maxValue);
         secondMinValue = maxValue;
         for (int anArray : array) {
             if ((anArray != minValue) && (anArray < maxValue) && (anArray < secondMinValue)) {
