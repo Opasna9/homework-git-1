@@ -1,10 +1,12 @@
 package utils;
 
+import static utils.ArrayUtils.sortBubbleArray;
+
 public class StringUtils {
 
     public static String deleteIncludeSymbols(String stringIn, String symbolStart, String symbolEnd) {
-        if (symbolStart.equals(symbolEnd)){
-            return deleteIncludeSymbols(stringIn,symbolStart);
+        if (symbolStart.equals(symbolEnd)) {
+            return deleteIncludeSymbols(stringIn, symbolStart);
         }
         String stringOut = stringIn;
         String[] sArray = stringIn.split("");
@@ -54,40 +56,38 @@ public class StringUtils {
         return stringOut;
     }
 
-    public static int countVolwelsRU(String s){
-        if (s == null){
+    public static int countVolwelsRU(String s) {
+        if (s == null) {
             return 0;
         }
         return s.toLowerCase().replaceAll("[^аяуюиыэеоеё]", "").length();
     }
 
-    public static int countConsonantRU(String s){
-        if (s == null){
+    public static int countConsonantRU(String s) {
+        if (s == null) {
             return 0;
         }
         return s.toLowerCase().replaceAll("[^а-я]", "").replaceAll("[аяуюиыэеоеё]", "").length();
     }
 
-    public static boolean isVowelRU(char symbol)
-    {
+    public static boolean isVowelRU(char symbol) {
         char[] vowels = new char[]{'а', 'я', 'у', 'ю', 'и', 'ы', 'э', 'е', 'о', 'ё'};
         symbol = Character.toLowerCase(symbol);
-        for (char vowel : vowels)
-        {
+        for (char vowel : vowels) {
             if (symbol == vowel)
                 return true;
         }
         return false;
     }
 
-    public static String[] getInterrogativeSentences(String text){
+    public static String[] getInterrogativeSentences(String text) {
         String[] result;
         boolean isLastSymbolQuestion = false;
         if (text.endsWith("?")) {
             isLastSymbolQuestion = true;
         }
         String[] stringEndsQuestion = text.split("[\\?]");
-        if(isLastSymbolQuestion){
+        if (isLastSymbolQuestion) {
             result = new String[stringEndsQuestion.length];
         } else {
             result = new String[stringEndsQuestion.length - 1];
@@ -101,8 +101,33 @@ public class StringUtils {
                 for (int j = questions.length - 1; j >= 0; j--) {
                     if (j == 0) {
                         //System.out.println(questions[j] + "?");
-                        result[countRes++] = questions[j];
+                        result[countRes++] = questions[j].trim();
                     }
+                }
+            }
+        }
+        return result;
+    }
+
+    public static String[] getWordsUniqueByLenght(String s, int lenght) {
+        String[] words = sortBubbleArray(s.toLowerCase().replaceAll("[^а-я ]", "").split(" "));
+        int lenghtNew = 0;
+        String prevValue = "";
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() == lenght) {
+                if (!prevValue.equals(words[i])) {
+                    lenghtNew++;
+                    prevValue = words[i];
+                }
+            }
+        }
+        String[] result = new String[lenghtNew];
+        int j = 0;
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() == lenght) {
+                if (!prevValue.equals(words[i])) {
+                    result[j++] = words[i];
+                    prevValue = words[i];
                 }
             }
         }
