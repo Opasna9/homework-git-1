@@ -1,40 +1,42 @@
 package lesson6Strings;
 
+import utils.StringUtils;
+
 import static utils.ArrayUtils.printArray;
 import static utils.ArrayUtils.sortBubbleArray;
 
 public class Demo {
     public static void main(String[] args) {
-        String stringIn = "Более 30 тысяч пользователей «Авто барахолки» ждали 11 октября. " +
-                "Ведь именно сегодня состоится розыгрыш автомобиля *Hyundai Accent*. " +
+        String s = "Более 30 тысяч пользователей «Авто барахолки» ждали 11 октября. " +
+                "Ведь именно сегодня состоится розыгрыш автомобиля *Hyundai Accent*? " +
                 "В конкурсе приняли участие 32096 объявлений, которые соответствовали правилам. " +
-                "Сегодня, примерно в 12:30, мы узнаем победителя. " +
-                "«Трансляция» розыгрыша будет вестись прямо в данной заметке, поэтому не *спешите* ее закрывать узнаем .";
-        runTask1(stringIn);
-        runTask2(stringIn);
-        runTask3(stringIn);
-        runTask4(stringIn);
-        runTask5(stringIn);
-        runTask6(stringIn);
-        runTask7(stringIn);
-        runTask8();
+                "Сегодня, примерно в 12:30, мы узнаем победителя? " +
+                "«Трансляция» розыгрыша будет вестись прямо в данной заметке, поэтому не *спешите* ее закрывать узнаем.";
+        runTask1(s);
+        runTask2(s);
+        runTask3(s);
+        runTask4(s);
+        runTask5(s);
+        runTask6(s);
+        runTask7(s);
+        runTask8(s);
     }
 
     private static void runTask1(String stringIn) {
         System.out.println("1. Преобразовать текст так, чтобы каждое слово начиналось с заглавной буквы.");
         System.out.println("String in = " + stringIn);
         String stringOut = "";
-        String[] sArray = stringIn.split("");
+        String[] letters = stringIn.split("");
         //printArray(sArray);
-        for (int i = 0; i < sArray.length; i++) {
+        for (int i = 0; i < letters.length; i++) {
             if (i == 0) {
-                sArray[0] = sArray[0].toUpperCase();
-            } else if (sArray[i - 1].equals("\u00a0") || sArray[i - 1].equals(" ")) {
-                sArray[i] = sArray[i].toUpperCase();
+                letters[0] = letters[0].toUpperCase();
+            } else if (letters[i - 1].equals("\u00a0") || letters[i - 1].equals(" ")) {
+                letters[i] = letters[i].toUpperCase();
             }
-            stringOut += sArray[i];
+            stringOut += letters[i];
         }
-        //System.out.println("String out = " + stringOut);
+        System.out.println("String out = " + stringOut);
     }
 
     private static void runTask2(String stringIn) {
@@ -47,14 +49,14 @@ public class Demo {
 
     private static void runTask3(String stringIn) {
         System.out.println("\n3.  Определить сумму всех целых чисел, встречающихся в заданном тексте");
-        String[] sArray = stringIn.split(" ");
+        String[] words = stringIn.split(" ");
         int sumValues = 0;
         String valuesInt = "";
         //printArray(sArray);
-        for (int i = 0; i < sArray.length; i++) {
-            if (sArray[i] == sArray[i].replaceAll("[^0-9]", "")) {
-                sumValues = +Integer.parseInt(sArray[i]);
-                valuesInt += Integer.parseInt(sArray[i]) + " ";
+        for (int i = 0; i < words.length; i++) {
+            if (words[i] == words[i].replaceAll("[^0-9]", "")) {
+                sumValues = +Integer.parseInt(words[i]);
+                valuesInt += Integer.parseInt(words[i]) + " ";
             }
         }
         System.out.println("valuesInt = " + valuesInt);
@@ -63,20 +65,20 @@ public class Demo {
 
     private static void runTask4(String stringIn) {
         System.out.println("\n4. В каждом слове текста k-ю букву заменить заданным символом. Если  k больше длины слова, корректировку не выполнять.");
-        String[] sArray = stringIn.split(" ");
+        String[] words = stringIn.split(" ");
         int k = 5;
         String symbol = "#";
         String stringOut = "";
-        for (int i = 0; i < sArray.length; i++) {
-            if (sArray[i].length() >= k) {
-                stringOut += sArray[i].substring(0, k - 1) + symbol;
-                if (sArray[i].length() > k) {
-                    stringOut += sArray[i].substring(k, sArray[i].length());
+        for (int i = 0; i < words.length; i++) {
+            if (words[i].length() >= k) {
+                stringOut += words[i].substring(0, k - 1) + symbol;
+                if (words[i].length() > k) {
+                    stringOut += words[i].substring(k, words[i].length());
                 }
                 stringOut += " ";
 
             } else {
-                stringOut += sArray[i] + " ";
+                stringOut += words[i] + " ";
             }
         }
         stringOut = stringOut.trim();
@@ -89,77 +91,25 @@ public class Demo {
         String symbolEnd = "»";
         String symbol = "*";
         System.out.println("deleteIncludeSymbols '" + symbolStart + "' and '" + symbolEnd + "'");
-        System.out.println(deleteIncludeSymbols(stringIn, symbolStart, symbolEnd));
+        System.out.println(StringUtils.deleteIncludeSymbols(stringIn, symbolStart, symbolEnd));
         System.out.println("deleteIncludeSymbols '" + symbol + "'");
-        System.out.println(deleteIncludeSymbols(stringIn, symbol));
-        System.out.println(deleteIncludeSymbols(stringIn, symbol, symbol));
-    }
-
-    private static String deleteIncludeSymbols(String stringIn, String symbolStart, String symbolEnd) {
-        if (symbolStart.equals(symbolEnd)){
-            return deleteIncludeSymbols(stringIn,symbolStart);
-        }
-        String stringOut = stringIn;
-        String[] sArray = stringIn.split("");
-        String stringDel;
-        int start = 0; // symbol position in string
-        int end = 0; // symbol position in ending
-        for (int i = 0; i < sArray.length; i++) {
-            if (sArray[i].equals(symbolStart)) {
-                start = i;
-            } else if (sArray[i].equals(symbolEnd)) {
-                end = i;
-            }
-            if (end > start) {
-//                System.out.println(stringIn.substring(start + 1, end));
-                stringDel = symbolStart + stringIn.substring(start + 1, end) + symbolEnd;
-                stringOut = stringOut.replace(stringDel, (symbolStart + symbolEnd));
-                start = 0;
-                end = 0;
-            }
-        }
-        return stringOut;
-    }
-
-    private static String deleteIncludeSymbols(String stringIn, String symbol) {
-        String[] sArray = stringIn.split("");
-        String stringDel;
-        String stringOut = stringIn;
-        int start = 0; // symbol position in string
-        int end = 0; // symbol position in ending
-        int position = 0; // symbol position
-        for (int i = 0; i < sArray.length; i++) {
-            if (sArray[i].equals(symbol)) {
-                position++;
-                if (position % 2 == 1) {
-                    start = i;
-                } else {
-                    end = i;
-//                    System.out.print("start = " + start);
-//                    System.out.println(" end = " + end);
-                    stringDel = symbol + stringIn.substring(start + 1, end) + symbol;
-                    stringOut = stringOut.replace(stringDel, (symbol + symbol));
-                    start = 0;
-                    end = 0;
-                }
-            }
-        }
-        return stringOut;
+        System.out.println(StringUtils.deleteIncludeSymbols(stringIn, symbol));
+        System.out.println(StringUtils.deleteIncludeSymbols(stringIn, symbol, symbol));
     }
 
     private static void runTask6(String stringIn) {
         System.out.println("\n6.  Найти и напечатать, сколько раз повторяется в тексте каждое слово, которое встречается в нем.");
-        String[] sArray = sortBubbleArray(stringIn.toLowerCase().replaceAll("\\p{Punct}", "").split(" "));
-        printArray(sArray);
+        String[] wordsSorted = sortBubbleArray(stringIn.toLowerCase().replaceAll("\\p{Punct}", "").split(" "));
+        printArray(wordsSorted);
         int count = 0;
         String distinctResult = "";
-        for (int i = 0; i < sArray.length; i++) {
-            if (i < sArray.length - 1){
-                if (sArray[i].equals(sArray[i+1])){
+        for (int i = 0; i < wordsSorted.length; i++) {
+            if (i < wordsSorted.length - 1) {
+                if (wordsSorted[i].equals(wordsSorted[i + 1])) {
                     count++;
                 } else {
                     count++;
-                    System.out.println(count + " : " + sArray[i]);
+                    System.out.println(count + " : " + wordsSorted[i]);
                     count = 0;
                 }
             }
@@ -168,35 +118,31 @@ public class Demo {
 
     private static void runTask7(String stringIn) {
         System.out.println("\n7. Найти, каких букв, гласных или согласных, больше в каждом предложении текста");
-        // каждое предложение текста разобрать
-        stringIn = stringIn.replaceAll("[^а-яА-Я]", "");
-        char[] chars = stringIn.toCharArray();
-        int countVolwels = 0;
-        int countConsonant = 0;
-        for (char aChar : chars) {
-            if (isVowel(aChar)){
-                countVolwels++;
+        String[] sentences = stringIn.split("[\\.\\!\\?]");
+        for (int i = 0; i < sentences.length; i++) {
+            int countVolwels = StringUtils.countVolwelsRU(sentences[i]);
+            int countConsonants = StringUtils.countConsonantRU(sentences[i]);
+            String moreLetters;
+            if (countVolwels > countConsonants) {
+                moreLetters = "more vowels in the sentence";
+            } else if (countVolwels < countConsonants) {
+                moreLetters = "more consonants in the sentence";
             } else {
-                countConsonant++;
+                moreLetters = "in the sentence of equally vowels and consonants";
             }
+            System.out.println("sentence " + i + ": " + moreLetters + " (countVolwels = " + countVolwels + " countConsonant = " + countConsonants + ")");
         }
-        System.out.println("countVolwels = " + countVolwels + " countConsonant = " + countConsonant);
     }
 
-    private static boolean isVowel(char symbol)
-    {
-        char[] vowels = new char[]{'а', 'я', 'у', 'ю', 'и', 'ы', 'э', 'е', 'о', 'ё'};
-        symbol = Character.toLowerCase(symbol);
-        for (char vowel : vowels)
-        {
-            if (symbol == vowel)
-                return true;
-        }
-        return false;
-    }
-
-    private static void runTask8() {
+    private static void runTask8(String stringIn) {
         System.out.println("\n8. Во всех вопросительных предложениях текста найти и напечатать без повторений слова заданной длины");
+
+        String[] interrogativeSentences = StringUtils.getInterrogativeSentences(stringIn);
+        for (int i = 0; i < interrogativeSentences.length; i++) {
+            System.out.println(interrogativeSentences[i]);
+        }
+
+
     }
 
 }
