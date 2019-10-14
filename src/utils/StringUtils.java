@@ -122,7 +122,6 @@ public class StringUtils {
         for (int i = stringEndsQuestion.length - 1; i >= 0; i--) {
             if ((i == 0 && isLastSymbolQuestion) || i != 0) {
                 //System.out.println(stringEndsQuestion[i] + "?");
-                //String[] questions = stringEndsQuestion[i].split("[\\.\\!]");
                 String[] questions = stringEndsQuestion[i].split("[.!?]");
                 for (int j = questions.length - 1; j >= 0; j--) {
                     if (j == 0) {
