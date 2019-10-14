@@ -4,6 +4,18 @@ import static utils.ArrayUtils.sortBubbleArray;
 
 public class StringUtils {
 
+    private StringUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
+    /**
+     * Returns replaced string from the text of which the parts enclosed between two characters are removed
+     *
+     * @param stringIn    - input string
+     * @param symbolStart - first character
+     * @param symbolEnd   - second character
+     * @return - replaced string
+     */
     public static String deleteIncludeSymbols(String stringIn, String symbolStart, String symbolEnd) {
         if (symbolStart.equals(symbolEnd)) {
             return deleteIncludeSymbols(stringIn, symbolStart);
@@ -30,6 +42,13 @@ public class StringUtils {
         return stringOut;
     }
 
+    /**
+     * Returns replaced string from the text of which the parts enclosed between two identical characters are removed.
+     *
+     * @param stringIn - input string
+     * @param symbol   - character
+     * @return - replaced string
+     */
     public static String deleteIncludeSymbols(String stringIn, String symbol) {
         String[] sArray = stringIn.split("");
         String stringDel;
@@ -60,14 +79,14 @@ public class StringUtils {
         if (s == null) {
             return 0;
         }
-        return s.toLowerCase().replaceAll("[^аяуюиыэеоеё]", "").length();
+        return s.toLowerCase().replaceAll("[^аяуюиыэеоё]", "").length();
     }
 
     public static int countConsonantRU(String s) {
         if (s == null) {
             return 0;
         }
-        return s.toLowerCase().replaceAll("[^а-я]", "").replaceAll("[аяуюиыэеоеё]", "").length();
+        return s.toLowerCase().replaceAll("[^а-я]", "").replaceAll("[аяуюиыэеоё]", "").length();
     }
 
     public static boolean isVowelRU(char symbol) {
@@ -80,13 +99,19 @@ public class StringUtils {
         return false;
     }
 
+    /**
+     * Returns an array of interrogative sentences from the input string
+     *
+     * @param text - input string
+     * @return - array of interrogative sentences
+     */
     public static String[] getInterrogativeSentences(String text) {
         String[] result;
         boolean isLastSymbolQuestion = false;
         if (text.endsWith("?")) {
             isLastSymbolQuestion = true;
         }
-        String[] stringEndsQuestion = text.split("[\\?]");
+        String[] stringEndsQuestion = text.split("[?]");
         if (isLastSymbolQuestion) {
             result = new String[stringEndsQuestion.length];
         } else {
@@ -95,9 +120,10 @@ public class StringUtils {
         int countRes = 0;
 
         for (int i = stringEndsQuestion.length - 1; i >= 0; i--) {
-            if ((i == 0 && isLastSymbolQuestion) || (i != 0)) {
+            if ((i == 0 && isLastSymbolQuestion) || i != 0) {
                 //System.out.println(stringEndsQuestion[i] + "?");
-                String[] questions = stringEndsQuestion[i].split("[\\.\\!]");
+                //String[] questions = stringEndsQuestion[i].split("[\\.\\!]");
+                String[] questions = stringEndsQuestion[i].split("[.!?]");
                 for (int j = questions.length - 1; j >= 0; j--) {
                     if (j == 0) {
                         //System.out.println(questions[j] + "?");
@@ -109,28 +135,77 @@ public class StringUtils {
         return result;
     }
 
-    public static String[] getWordsUniqueByLenght(String s, int lenght) {
+    /**
+     * Returns an array of words of the original string with length
+     *
+     * @param s      - input string
+     * @param length - length of words
+     * @return - array of words
+     */
+    public static String[] getWordsUniqueByLenght(String s, int length) {
         String[] words = sortBubbleArray(s.toLowerCase().replaceAll("[^а-я ]", "").split(" "));
         int lenghtNew = 0;
         String prevValue = "";
-        for (int i = 0; i < words.length; i++) {
-            if (words[i].length() == lenght) {
-                if (!prevValue.equals(words[i])) {
-                    lenghtNew++;
-                    prevValue = words[i];
-                }
+        for (String word : words) {
+            if (word.length() == length && !prevValue.equals(word)) {
+                lenghtNew++;
+                prevValue = word;
             }
         }
         String[] result = new String[lenghtNew];
         int j = 0;
-        for (int i = 0; i < words.length; i++) {
-            if (words[i].length() == lenght) {
-                if (!prevValue.equals(words[i])) {
-                    result[j++] = words[i];
-                    prevValue = words[i];
-                }
+        for (String word : words) {
+            if (word.length() == length && !prevValue.equals(word)) {
+                result[j++] = word;
+                prevValue = word;
             }
         }
         return result;
+    }
+
+    /**
+     * Return replaced string where symbol with position replaced
+     *
+     * @param s        - input string
+     * @param position - position for replaced
+     * @param symbol   - new symbol for position
+     * @return - replaced string
+     */
+    public static String replaceStringBySymbolPosition(String s, int position, char symbol) {
+        char[] chars = s.toCharArray();
+        StringBuilder result = new StringBuilder();
+        int countLetter = 0;
+        for (char c : chars) {
+            if (Character.isLetter(c)) {
+                countLetter++;
+                if (countLetter == position) {
+                    result.append(symbol);
+                } else {
+                    result.append(c);
+                }
+            } else {
+                result.append(c);
+            }
+        }
+        return result.toString();
+    }
+
+    public static String toStartUpperCase(String s) {
+        char[] chars = s.toCharArray();
+        StringBuilder result = new StringBuilder();
+        int countLetter = 0;
+        for (char c : chars) {
+            if (Character.isLetter(c)) {
+                countLetter++;
+                if (countLetter == 1) {
+                    result.append(Character.toString(c).toUpperCase());
+                } else {
+                    result.append(c);
+                }
+            } else {
+                result.append(c);
+            }
+        }
+        return result.toString();
     }
 }

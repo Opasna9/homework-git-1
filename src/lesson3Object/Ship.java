@@ -119,7 +119,6 @@ public class Ship extends Transport implements ShipFunctionality, TransportFunct
         result = 31 * result + (type != null ? type.hashCode() : 0);
         result = 31 * result + humanSeats;
         result = 31 * result + (workDaysOfWeek != null ? workDaysOfWeek.hashCode() : 0);
-        result = 31 * result + (super.isIsMilitary() == true ? 1 : 2);
         return result;
     }
 

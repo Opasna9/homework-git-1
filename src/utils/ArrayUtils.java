@@ -2,6 +2,10 @@ package utils;
 
 public class ArrayUtils {
 
+    private ArrayUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static void printArray(double[] array) {
         Object[] objects = new Object[array.length];
         for (int i = 0; i < array.length; i++) {

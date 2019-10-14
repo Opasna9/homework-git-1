@@ -11,6 +11,10 @@ import static java.lang.Integer.parseInt;
 
 public class ShipUtils {
 
+    private ShipUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
     /**
      * Returns an array of Ship objects with random fields
      *
@@ -19,7 +23,7 @@ public class ShipUtils {
      */
     public static List<Ship> generateShips(int countShip){
         List<Ship> ships = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < countShip; i++) {
             Ship ship = new Ship();
             ship.setName(RandomStringUtils.random(10, true, false));
             ship.setHumanSeats(parseInt(RandomStringUtils.randomNumeric(5)));

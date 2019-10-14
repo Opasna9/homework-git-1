@@ -12,7 +12,8 @@ public class Demo {
                 "Ведь именно сегодня состоится розыгрыш автомобиля *Hyundai Accent*? " +
                 "В конкурсе приняли участие 32096 объявлений, которые соответствовали правилам. " +
                 "Сегодня, примерно в 12:30, мы узнаем победителя? " +
-                "«Трансляция» розыгрыша будет вестись прямо в данной заметке, поэтому не *спешите* ее закрывать узнаем ее.";
+                "«трансляция» розыгрыша будет вестись прямо в данной заметке, поэтому не *спешите* ее закрывать узнаем ее.";
+        System.out.println(s + "\n");
         runTask1(s);
         runTask2(s);
         runTask3(s);
@@ -25,19 +26,12 @@ public class Demo {
 
     private static void runTask1(String s) {
         System.out.println("1. Преобразовать текст так, чтобы каждое слово начиналось с заглавной буквы.");
-        System.out.println(s);
-        String result = "";
-        String[] letters = s.split("");
-        //printArray(sArray);
-        for (int i = 0; i < letters.length; i++) {
-            if (i == 0) {
-                letters[0] = letters[0].toUpperCase();
-            } else if (letters[i - 1].equals("\u00a0") || letters[i - 1].equals(" ")) {
-                letters[i] = letters[i].toUpperCase();
-            }
-            result += letters[i];
+        String[] words = s.split(" ");
+        StringBuilder result = new StringBuilder();
+        for (String word : words) {
+            result.append(StringUtils.toStartUpperCase(word) + " ");
         }
-        System.out.println("result = " + result);
+        System.out.println("result = " + result.toString().trim());
     }
 
     private static void runTask2(String s) {
@@ -51,38 +45,30 @@ public class Demo {
         System.out.println("\n3.  Определить сумму всех целых чисел, встречающихся в заданном тексте");
         String[] words = s.split(" ");
         int sumValues = 0;
-        String valuesInt = "";
-        //printArray(sArray);
-        for (int i = 0; i < words.length; i++) {
-            if (words[i] == words[i].replaceAll("[^0-9]", "")) {
-                sumValues = +Integer.parseInt(words[i]);
-                valuesInt += Integer.parseInt(words[i]) + " ";
+        StringBuilder valuesInt = new StringBuilder();
+        //printArray(words);
+        for (String word : words) {
+            if (word.equals(word.replaceAll("[^0-9]", ""))) {
+                sumValues += Integer.parseInt(word);
+                valuesInt.append(Integer.parseInt(word));
+                valuesInt.append(" ");
             }
         }
-        System.out.println("valuesInt = " + valuesInt);
+        System.out.println("valuesInt = " + valuesInt.toString());
         System.out.println("sumValues = " + sumValues);
     }
 
     private static void runTask4(String s) {
         System.out.println("\n4. В каждом слове текста k-ю букву заменить заданным символом. Если  k больше длины слова, корректировку не выполнять.");
-        String[] words = s.split(" ");
+        char symbol = '#';
         int k = 5;
-        String symbol = "#";
-        String stringOut = "";
-        for (int i = 0; i < words.length; i++) {
-            if (words[i].length() >= k) {
-                stringOut += words[i].substring(0, k - 1) + symbol;
-                if (words[i].length() > k) {
-                    stringOut += words[i].substring(k, words[i].length());
-                }
-                stringOut += " ";
-
-            } else {
-                stringOut += words[i] + " ";
-            }
+        String[] words = s.split(" ");
+        StringBuilder result = new StringBuilder();
+        for (String word : words) {
+            result.append(StringUtils.replaceStringBySymbolPosition(word, k, symbol));
+            result.append(" ");
         }
-        stringOut = stringOut.trim();
-        System.out.println(stringOut);
+        System.out.println(result.toString().trim());
     }
 
     private static void runTask5(String s) {
@@ -98,11 +84,10 @@ public class Demo {
     }
 
     private static void runTask6(String s) {
-        System.out.println("\n6.  Найти и напечатать, сколько раз повторяется в тексте каждое слово, которое встречается в нем.");
-        String[] wordsSorted = sortBubbleArray(s.toLowerCase().replaceAll("[^а-я ]", "").split(" "));
+        System.out.println("\n6. Найти и напечатать, сколько раз повторяется в тексте каждое слово, которое встречается в нем.");
+        String[] wordsSorted = sortBubbleArray(s.toLowerCase().replaceAll("[^а-яa-z ]", "").split(" "));
         printArray(wordsSorted);
         int count = 0;
-        String distinctResult = "";
         for (int i = 0; i < wordsSorted.length; i++) {
             if (i < wordsSorted.length - 1) {
                 if (wordsSorted[i].equals(wordsSorted[i + 1])) {
@@ -120,19 +105,19 @@ public class Demo {
 
     private static void runTask7(String s) {
         System.out.println("\n7. Найти, каких букв, гласных или согласных, больше в каждом предложении текста");
-        String[] sentences = s.split("[\\.\\!\\?]");
+        String[] sentences = s.split("[.!?]");
         for (int i = 0; i < sentences.length; i++) {
-            int countVolwels = StringUtils.countVolwelsRU(sentences[i]);
-            int countConsonants = StringUtils.countConsonantRU(sentences[i]);
+            int volwelsRU = StringUtils.countVolwelsRU(sentences[i]);
+            int consonantsRU = StringUtils.countConsonantRU(sentences[i]);
             String moreLetters;
-            if (countVolwels > countConsonants) {
+            if (volwelsRU > consonantsRU) {
                 moreLetters = "more vowels in the sentence";
-            } else if (countVolwels < countConsonants) {
+            } else if (volwelsRU < consonantsRU) {
                 moreLetters = "more consonants in the sentence";
             } else {
                 moreLetters = "in the sentence of equally vowels and consonants";
             }
-            System.out.println("sentence " + i + ": " + moreLetters + " (countVolwels = " + countVolwels + " countConsonant = " + countConsonants + ")");
+            System.out.println("sentence " + i + ": " + moreLetters + " (volwelsRU = " + volwelsRU + " consonantsRU = " + consonantsRU + ")");
         }
     }
 
@@ -141,9 +126,9 @@ public class Demo {
         int lenght = 2;
         System.out.println("word lenght = " + lenght);
         String[] interrogativeSentences = StringUtils.getInterrogativeSentences(s);
-        for (int i = 0; i < interrogativeSentences.length; i++) {
-            System.out.println(interrogativeSentences[i]);
-            String[] words = getWordsUniqueByLenght(interrogativeSentences[i], lenght);
+        for (String interrogativeSentence : interrogativeSentences) {
+            System.out.println(interrogativeSentence);
+            String[] words = getWordsUniqueByLenght(interrogativeSentence, lenght);
             printArray(words);
         }
     }
