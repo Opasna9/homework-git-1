@@ -9,7 +9,8 @@ public class StringUtils {
     }
 
     /**
-     * Returns replaced string from the text of which the parts enclosed between two characters are removed
+     * Returns replaced string from the text of which the parts enclosed
+     * between two characters are removed.
      *
      * @param stringIn    - input string
      * @param symbolStart - first character
@@ -43,7 +44,8 @@ public class StringUtils {
     }
 
     /**
-     * Returns replaced string from the text of which the parts enclosed between two identical characters are removed.
+     * Returns replaced string from the text of which the parts enclosed
+     * between two identical characters are removed.
      *
      * @param stringIn - input string
      * @param symbol   - character
@@ -100,7 +102,7 @@ public class StringUtils {
     }
 
     /**
-     * Returns an array of interrogative sentences from the input string
+     * Returns an array of interrogative sentences from the input string.
      *
      * @param text - input string
      * @return - array of interrogative sentences
@@ -135,7 +137,7 @@ public class StringUtils {
     }
 
     /**
-     * Returns an array of words of the original string with length
+     * Returns an array of words of the original string with length.
      *
      * @param s      - input string
      * @param length - length of words
@@ -163,7 +165,7 @@ public class StringUtils {
     }
 
     /**
-     * Return replaced string where symbol with position replaced
+     * Return replaced string where symbol with position replaced.
      *
      * @param s        - input string
      * @param position - position for replaced

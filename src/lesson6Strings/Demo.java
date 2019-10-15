@@ -74,11 +74,13 @@ public class Demo {
 
     private static void runTask5(String s) {
         System.out.println("\n5. Удалить из текста его часть, заключенную между двумя символами, которые вводятся (например, между скобками ‘(’ и ‘)’ или между звездочками ‘*’ и т.п.).");
+
         String symbolStart = "«";
         String symbolEnd = "»";
-        String symbol = "*";
         System.out.println("deleteIncludeSymbols '" + symbolStart + "' and '" + symbolEnd + "'");
         System.out.println(StringUtils.deleteIncludeSymbols(s, symbolStart, symbolEnd));
+
+        String symbol = "*";
         System.out.println("deleteIncludeSymbols '" + symbol + "'");
         System.out.println(StringUtils.deleteIncludeSymbols(s, symbol));
         System.out.println(StringUtils.deleteIncludeSymbols(s, symbol, symbol));

@@ -16,14 +16,17 @@ public class ShipUtils {
     }
 
     /**
-     * Returns List<Ship> filtered for by field weight between weightMin and weightMax
+     * Returns List<Ship> filtered for by field weight between weightMin and
+     * weightMax.
      *
      * @param list      list objects Ship for filter
      * @param weightMax max value weight
      * @param weightMin min value weight
      * @return - new list after filter
      */
-    public static List<Ship> filterShipListByWeight(List<Ship> list, int weightMax, int weightMin) {
+    public static List<Ship> filterShipListByWeight(List<Ship> list,
+                                                    int weightMax,
+                                                    int weightMin) {
         System.out.println("filterShipListByWeight ships: weightMax = " + weightMax + " weightMin = " + weightMin);
         List<Ship> ships = new ArrayList<>();
         for (Ship ship : list) {
@@ -35,7 +38,7 @@ public class ShipUtils {
     }
 
     /**
-     * Sort method Bubble for List<Ship> by field
+     * Sort method Bubble for List<Ship> by field.
      *
      * @param list  list objects Ship for sort
      * @param field name get method for sort
@@ -48,19 +51,24 @@ public class ShipUtils {
                 boolean condition;
                 switch (field) {
                     case "getPrice":
-                        condition = list.get(j).getPrice() < list.get(j - 1).getPrice();
+                        condition =
+                                list.get(j).getPrice() < list.get(j - 1).getPrice();
                         break;
                     case "getHumanSeats":
-                        condition = list.get(j).getHumanSeats() < list.get(j - 1).getHumanSeats();
+                        condition =
+                                list.get(j).getHumanSeats() < list.get(j - 1).getHumanSeats();
                         break;
                     case "getWeight":
-                        condition = list.get(j).getWeight() < list.get(j - 1).getWeight();
+                        condition =
+                                list.get(j).getWeight() < list.get(j - 1).getWeight();
                         break;
                     case "getName":
-                        condition = list.get(j - 1).getName().compareTo(list.get(j).getName()) > 0;
+                        condition =
+                                list.get(j - 1).getName().compareTo(list.get(j).getName()) > 0;
                         break;
                     case "getType":
-                        condition = list.get(j - 1).getType().compareTo(list.get(j).getType()) > 0;
+                        condition =
+                                list.get(j - 1).getType().compareTo(list.get(j).getType()) > 0;
                         break;
                     default:
                         condition = false;
@@ -75,7 +83,7 @@ public class ShipUtils {
     }
 
     /**
-     * Returns an array of Ship objects with random fields
+     * Returns an array of Ship objects with random fields.
      *
      * @param countShip - number of objects
      * @return - array of objects Ship
@@ -96,7 +104,7 @@ public class ShipUtils {
     }
 
     /**
-     * Print a List of Ship objects
+     * Print a List of Ship objects.
      *
      * @param ships - List of Ship objects
      */

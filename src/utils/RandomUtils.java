@@ -15,23 +15,25 @@ public class RandomUtils {
     }
 
     /**
-     * Returns an array of random double fields of a given size with rounding
+     * Returns an array of random double fields of a given size with rounding.
      *
      * @param size       - size of array
      * @param maxValue   - maximum value of elements
      * @param scaleRound - scale of round
      * @return - array of random double fields
      */
-    public static double[] createRandomArrayDouble(int size, int maxValue, int scaleRound) {
+    public static double[] createRandomArrayDouble(int size, int maxValue,
+                                                   int scaleRound) {
         double[] array = new double[size];
         for (int i = 0; i < array.length; i++) {
-            array[i] = RANDOM.nextInt(maxValue * (int) Math.pow(10, scaleRound)) / Math.pow(10, scaleRound);
+            array[i] = RANDOM.nextInt(maxValue * (int) Math.pow(10,
+                    scaleRound)) / Math.pow(10, scaleRound);
         }
         return array;
     }
 
     /**
-     * Returns an array of random int fields of a given size
+     * Returns an array of random int fields of a given size.
      *
      * @param size     - size of array
      * @param maxValue - maximum value of elements
