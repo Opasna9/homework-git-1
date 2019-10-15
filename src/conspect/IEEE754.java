@@ -8,5 +8,6 @@ public class IEEE754 {
         System.out.println(-i / 0);
         System.out.println(k=Math.sqrt(-i));
         System.out.println(Double.isNaN(k));
+        System.out.println(0d / 0d);
     }
 }

@@ -29,7 +29,8 @@ public class Demo {
         String[] words = s.split(" ");
         StringBuilder result = new StringBuilder();
         for (String word : words) {
-            result.append(StringUtils.toStartUpperCase(word) + " ");
+            result.append(StringUtils.toStartUpperCase(word));
+            result.append(" ");
         }
         System.out.println("result = " + result.toString().trim());
     }
@@ -117,7 +118,7 @@ public class Demo {
             } else {
                 moreLetters = "in the sentence of equally vowels and consonants";
             }
-            System.out.println("sentence " + i + ": " + moreLetters + " (volwelsRU = " + volwelsRU + " consonantsRU = " + consonantsRU + ")");
+            System.out.println("sentence " + (i + 1) + ": " + moreLetters + " (volwelsRU = " + volwelsRU + " consonantsRU = " + consonantsRU + ")");
         }
     }
 
