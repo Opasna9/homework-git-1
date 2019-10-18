@@ -1,4 +1,4 @@
-package conspect;
+package conspect.operators;
 
 public class SwitchWithBreak {
     public static void main(String[] args) {

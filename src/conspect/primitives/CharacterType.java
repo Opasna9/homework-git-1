@@ -1,4 +1,4 @@
-package conspect;
+package conspect.primitives;
 
 public class CharacterType {
     public static void main(String[] args) {

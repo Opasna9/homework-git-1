@@ -1,4 +1,4 @@
-package conspect;
+package conspect.primitives;
 
 public class IEEE754 {
     public static void main(String[] args) {

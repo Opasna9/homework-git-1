@@ -1,4 +1,4 @@
-package conspect.oop;
+package conspect.oop.initialBlocks;
 
 public class InitialBlockInheritance {
     public static void main(String[] args) {

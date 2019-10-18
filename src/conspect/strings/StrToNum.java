@@ -1,4 +1,4 @@
-package conspect;
+package conspect.strings;
 
 public class StrToNum {
     public static void main(String[] args) {

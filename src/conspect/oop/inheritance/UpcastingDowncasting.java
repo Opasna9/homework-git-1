@@ -1,4 +1,4 @@
-package conspect.oop;
+package conspect.oop.inheritance;
 
 public class UpcastingDowncasting {
     public static void main(String[] args) {

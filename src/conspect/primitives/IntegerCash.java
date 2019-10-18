@@ -1,4 +1,4 @@
-package conspect;
+package conspect.primitives;
 
 public class IntegerCash {
     public static void main(String[] args) {

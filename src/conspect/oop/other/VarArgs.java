@@ -1,4 +1,4 @@
-package conspect.oop;
+package conspect.oop.other;
 
 public class VarArgs {
     public static void main(String[] args) {

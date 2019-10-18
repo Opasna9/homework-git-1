@@ -1,4 +1,4 @@
-package conspect;
+package conspect.primitives;
 
 import java.math.BigInteger;
 

@@ -1,4 +1,4 @@
-package test;
+package conspect.oop.other;
 
 public class MemoryTest {
     public static void main(String[] args) {

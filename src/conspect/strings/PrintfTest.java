@@ -1,4 +1,4 @@
-package test;
+package conspect.strings;
 
 public class PrintfTest {
     public static void main(String[] args) {

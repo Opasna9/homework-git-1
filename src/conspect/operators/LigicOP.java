@@ -1,4 +1,4 @@
-package conspect;
+package conspect.operators;
 
 public class LigicOP {
     public static void main(String[] args) {

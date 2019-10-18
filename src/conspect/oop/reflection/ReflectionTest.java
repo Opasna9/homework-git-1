@@ -1,4 +1,4 @@
-package test;
+package conspect.oop.reflection;
 
 import java.lang.reflect.*;
 

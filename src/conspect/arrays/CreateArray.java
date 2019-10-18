@@ -1,9 +1,10 @@
-package conspect;
+package conspect.arrays;
 
 public class CreateArray {
     int myArray[];
     int mySecond[] = new int[100];
     int a[] = {5, 10, 0, -5, 16, -2};
+    int[] arr1 = {};
 
     public static void main(String[] args) {
         int[] price = new int[10];

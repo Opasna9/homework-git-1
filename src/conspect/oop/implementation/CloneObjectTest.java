@@ -1,4 +1,4 @@
-package test;
+package conspect.oop.implementation;
 
 public class CloneObjectTest {
     public static void main(String[] args) throws CloneNotSupportedException {

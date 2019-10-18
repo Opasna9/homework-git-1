@@ -1,4 +1,4 @@
-package conspect;
+package conspect.strings;
 
 import java.util.Scanner;
 
