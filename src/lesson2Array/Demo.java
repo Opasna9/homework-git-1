@@ -2,8 +2,7 @@ package lesson2Array;
 
 import utils.ArrayUtils;
 import utils.RandomUtils;
-
-import java.util.ArrayList;
+import java.util.*;
 
 import static utils.ArrayUtils.sortBubbleArray;
 
@@ -403,10 +402,17 @@ public class Demo {
     private static void runTask20(int[] array) {
         System.out.println("\nTask 20. Write a Java program to convert an array to ArrayList.");
         ArrayUtils.printArray(array);
-        ArrayList<Integer> arrayList = new ArrayList<>();
+        List<Integer> arrayList = new ArrayList<>();
         for (int i : array) {
             arrayList.add(i);
         }
-        System.out.print(arrayList);
+        System.out.print(arrayList.toString());
+
+        ArrayList<Integer> arrayList1 = new ArrayList<>();
+        for (int i : array) {
+            arrayList1.add(i);
+        }
+        System.out.print(arrayList1.toString()); // = arrayList.toString()
+
     }
 }
