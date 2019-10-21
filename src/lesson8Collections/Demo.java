@@ -9,6 +9,8 @@ public class Demo {
     public static void main(String[] args) {
 
         List<Book> books = new LinkedList<>();
+
+
         books.add(new Book("Война и мир", "Толстой", "Лев", "Николаевич"));
         books.add(new Book("Лолита", "Набоков", "Владимир", "Владимирович"));
         books.add(new Book("Унесённые ветром", "Митчелл", "Маргарет", "Манерлин "));
@@ -29,10 +31,10 @@ public class Demo {
         System.out.println("1. Создать экземпляр класса LinkedList, разместить в " +
                 "нём 3 ссылки на объекты класса Book. " +
                 "List< Book > list = new LinkedList< Book >();\n" +
-                "Вывести информацию о всех книгах. Программно удалить из коллекции " +
-                "вторую книгу, вывести на экран информацию о оставшихся книгах.");
+                "Вывести информацию о всех книгах.");
         CollectionUtils.printList(books);
 
+        System.out.println("\nПрограммно удалить из коллекции вторую книгу, вывести на экран информацию о оставшихся книгах.");
         int numberBookForDel = 2;
         books.remove(numberBookForDel - 1);
         CollectionUtils.printList(books);
