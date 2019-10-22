@@ -16,14 +16,11 @@ public class Demo {
         books.add(new Book("Унесённые ветром", "Митчелл", "Маргарет", "Манерлин "));
         runTask1(books);
 
-        books = new LinkedList<>();
-        books.add(new Book("Война и мир", "Толстой", "Лев", "Николаевич"));
+        books.add(new Book("Анна Каренина", "Толстой", "Лев", "Николаевич"));
         books.add(new Book("Лолита", "Набоков", "Владимир", "Владимирович"));
-        books.add(new Book("Унесённые ветром", "Митчелл", "Маргарет", "Манерлин "));
+
         runTask2(books);
-
         runTask4();
-
         runTask5();
     }
 
@@ -48,9 +45,11 @@ public class Demo {
         booksSet.addAll(books);
         booksSet.addAll(books);
         booksSet.addAll(books);
-        booksSet.addAll(books);
-        booksSet.addAll(books);
-        booksSet.addAll(books);
+        booksSet.add(new Book("Преступление и наказание", "Достоевский", "Федор", "Михайлович"));
+        booksSet.add(new Book("Идиот", "Достоевский", "Федор", "Михайлович"));
+        booksSet.add(new Book("Мёртвые души", "Гоголь", "Николай", "Васильевич"));
+        booksSet.add(new Book("Отцы и дети", "Тургенев", "Иван", "Сергеевич"));
+
         CollectionUtils.printList(booksSet);
 
         System.out.println("\nВывести на экран информацию о книгах (содержащихся в " +
@@ -72,17 +71,20 @@ public class Demo {
                 "затем по имени, по отчеству (эти поля надо добавить в класс Book " +
                 "для автора книги).");
 
-        Set<Book> treeSet = new TreeSet<Book>(Comparator.comparing(Book::getAuthorSurName));
+        Set<Book> treeSet = new TreeSet<>(Comparator.comparing(Book::getAuthorSurName)
+                .thenComparing(Book::getName));
         treeSet.addAll(booksSet);
         System.out.println("sort getAuthorSurName");
         CollectionUtils.printList(treeSet);
 
-        treeSet = new TreeSet<Book>(Comparator.comparing(Book::getAuthorFirstName));
+        treeSet = new TreeSet<>(Comparator.comparing(Book::getAuthorFirstName)
+                .thenComparing(Book::getName));
         treeSet.addAll(booksSet);
         System.out.println("sort getAuthorFirstName");
         CollectionUtils.printList(treeSet);
 
-        treeSet = new TreeSet<Book>(Comparator.comparing(Book::getAuthorSecondName));
+        treeSet = new TreeSet<>(Comparator.comparing(Book::getAuthorSecondName)
+                .thenComparing(Book::getName));
         treeSet.addAll(booksSet);
         System.out.println("sort getAuthorSecondName");
         CollectionUtils.printList(treeSet);
@@ -94,7 +96,7 @@ public class Demo {
                 "него объекты класса Student(надо его спроектировать).");
 
         //option 1
-        System.out.println("option 1 with compareTo");
+        System.out.println("option 1 with Book comparable");
         Set<Student> treeSet = new TreeSet<>();
         treeSet.add(new Student("Швед", "Павел", "Олегович", "Группа3"));
         treeSet.add(new Student("Шеин", "Анна", "Витальевна", "Группа1"));
@@ -112,7 +114,7 @@ public class Demo {
 
         //option 3
         System.out.println("option 3 with Comparator.comparing");
-        Set<Student> treeSet3 = new TreeSet<Student>(Comparator.comparing(Student::getFirstName)
+        Set<Student> treeSet3 = new TreeSet<>(Comparator.comparing(Student::getFirstName)
                 .thenComparing(Student::getSecondName)
                 .thenComparing(Student::getGroup)
                 .thenComparing(Student::getSurName));
