@@ -35,6 +35,8 @@ public class Demo {
         int numberBookForDel = 2;
         books.remove(numberBookForDel - 1);
         CollectionUtils.printList(books);
+
+
     }
 
     private static void runTask2(List<Book> books) {
@@ -153,15 +155,25 @@ public class Demo {
         goodsHashMap.put("Электропитание",0);
         System.out.println(goodsHashMap);
 
+        System.out.println("----------------");
+        MapUtils.print(goodsHashMap);
+        System.out.println("----------------");
+
         System.out.println("\nСортировать коллекцию по количеству товаров в каждой " +
                 "категории");
 
         Map<String,Integer> goodsTreeMap = new TreeMap<>();
         goodsTreeMap.putAll(goodsHashMap);
         System.out.println(goodsTreeMap);
+        System.out.println("----------------");
+        MapUtils.print(goodsTreeMap);
+        System.out.println("----------------");
 
         goodsTreeMap = MapUtils.sortByValues(goodsTreeMap);
         System.out.println(goodsTreeMap);
+        System.out.println("----------------");
+        MapUtils.print(goodsTreeMap);
+        System.out.println("----------------");
 
         System.out.println("\nНайти категорию в которой содержится максимальное " +
                 "количество товаров.");
@@ -189,6 +201,10 @@ public class Demo {
         }
 
         System.out.println(goodsTreeMap);
+        System.out.println("----------------");
+        MapUtils.print(goodsTreeMap);
+        System.out.println("----------------");
+
     }
 
 }
