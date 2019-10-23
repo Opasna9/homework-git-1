@@ -1,4 +1,4 @@
-package conspect.oop.parameirization;
+package conspect.oop.generic;
 
 public class Holder<T> {
     T v;

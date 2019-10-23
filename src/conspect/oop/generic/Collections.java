@@ -1,4 +1,4 @@
-package conspect.oop.parameirization;
+package conspect.oop.generic;
 
 import java.util.ArrayList;
 import java.util.List;
