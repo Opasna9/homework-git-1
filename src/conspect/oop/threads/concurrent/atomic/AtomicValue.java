@@ -1,4 +1,4 @@
-package conspect.oop.threads.atomic;
+package conspect.oop.threads.concurrent.atomic;
 
 public class AtomicValue {
     //AtomicLong

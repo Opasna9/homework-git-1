@@ -24,7 +24,7 @@ public class OperationsRunSheduler {
                 Transfer transfer = new Transfer(1, acc1, acc2, rnd.nextInt(400));
                 // запуск после 5 сек
                 //service.schedule(transfer, 5, TimeUnit.SECONDS);
-                service.scheduleAtFixedRate(transfer, 0,1, TimeUnit.SECONDS);
+                service.scheduleAtFixedRate(transfer, 2,1, TimeUnit.SECONDS);
             }
 
 

@@ -37,7 +37,7 @@ public class SemaphoreTest {
                 //acquire() запрашивает доступ к следующему за вызовом этого метода блоку кода,
                 //если доступ не разрешен, поток вызвавший этот метод блокируется до тех пор,
                 //пока семафор не разрешит доступ
-                SEMAPHORE.acquire();
+                SEMAPHORE.acquire(); // ждет, чтобы занять permit, если есть сободный, занимает
 
                 int parkingNumber = -1;
 
@@ -59,7 +59,7 @@ public class SemaphoreTest {
                 }
 
                 //release(), напротив, освобождает ресурс
-                SEMAPHORE.release();
+                SEMAPHORE.release(); // освобождает permit
                 System.out.printf("Автомобиль №%d покинул парковку.\n", carNumber);
             } catch (InterruptedException e) {
             }
