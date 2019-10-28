@@ -2,7 +2,8 @@ package conspect.oop.threads.deadlock;
 
 import javax.naming.InsufficientResourcesException;
 
-public class Operations {
+public class OperationsRun {
+
     public static void main(String[] args) {
         final Account a = new Account(1,"a", 1000);
         final Account b = new Account(2,"b",2000);
