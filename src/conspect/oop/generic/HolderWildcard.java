@@ -1,6 +1,6 @@
 package conspect.oop.generic;
 
-public class Holder<T> {
+public class HolderWildcard<T> {
     T v;
     T get() {
         return v;
@@ -10,14 +10,11 @@ public class Holder<T> {
     }
 
     public static void main(String[]args) {
-        Holder<? super Number> hs = new Holder();
-        Holder<? extends Number> he = new Holder();
-        Holder<?> h = new Holder();
-
         Integer i =1;
         Number n = 1;
         Object o = new Object();
 
+        HolderWildcard<? super Number> hs = new HolderWildcard();
         // Producer Super
         //i = hs.get(); // <? super Number> cannot be converted to Integer
         //n = hs.get(); // <? super Number> cannot be converted to Number
@@ -28,6 +25,7 @@ public class Holder<T> {
         hs.set(n);
         //hs.set(o); // Object cannot be converted to <? super Number>
 
+        HolderWildcard<? extends Number> he = new HolderWildcard();
         // Producer Extends
        // i = he.get(); // <? extends Number> cannot be converted to Integer
         n = he.get();
@@ -38,6 +36,7 @@ public class Holder<T> {
         //he.set(n); // Number cannot be converted to <? extends Number>
         //he.set(o); // Object cannot be converted to <? extends Number>
 
+        HolderWildcard<?> h = new HolderWildcard();
         // Producer Super
         //i = h.get(); // <?> cannot be converted to Integer
         //n = h.get(); // <?> cannot be converted to Number

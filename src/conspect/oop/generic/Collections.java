@@ -21,8 +21,7 @@ public class Collections {
 //        4) new ArrayList<A4>(): can store          A4       B3 B4    C2 C3 D1 D2 E1 E2 E3 E4
 //        5) new ArrayList<B2>(): can store                B2       C1 C2    D1 D2 E1 E2 E3 E4
 //        6) new ArrayList<B3>(): can store                   B3       C2 C3 D1 D2 E1 E2 E3 E4
-//        7) new ArrayList<C2>(): can store
-//                         C2    D1 D2 E1 E2 E3 E4
+//        7) new ArrayList<C2>(): can store                            C2    D1 D2 E1 E2 E3 E4
 
         List<E1> output = new ArrayList<>();
         List<A3> input = new ArrayList<>();
