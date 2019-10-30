@@ -17,12 +17,14 @@ public class OperationsRun {
                 @Override
                 public void run() {
                     try {
-                        //AccountUtils.transfer(a, b, 500); // with deadLock
+                        AccountUtils.transfer(a, b, 500); // with deadLock
+                        //AccountUtils.transferMonitor(a, b, 500); // without deadLock Используем монитор
                         //AccountUtils.transferWithoutDeadLock(a, b, 500); // without deadLock Используем иерархию по ID
-                        AccountUtils.transferReentrantLock(a, b, 500); // without deadLock Используем java.util.concurrent.locks.ReentrantLock
+                        //AccountUtils.transferReentrantLock(a, b, 500); // without deadLock Используем java.util.concurrent.locks.ReentrantLock
                         System.out.println("a = " + a.getBalance());
                         System.out.println("b = " + b.getBalance());
                     } catch (InsufficientResourcesException | InterruptedException e) {
+                   // } catch (InsufficientResourcesException e) {
                         e.printStackTrace();
 //                    } catch (InterruptedException e) {
 //                        e.printStackTrace();
@@ -32,8 +34,8 @@ public class OperationsRun {
              thread1.start();
 
             //AccountUtils.transfer(b, a, 300);
-            //AccountUtils.transferWithoutDeadLock(b, a, 300);
-            AccountUtils.transferReentrantLock(b, a, 300);
+            AccountUtils.transferWithoutDeadLock(b, a, 300);
+            //AccountUtils.transferReentrantLock(b, a, 300);
 
             thread1.join(); // - останавливает поток main до завершения потока thread1
 

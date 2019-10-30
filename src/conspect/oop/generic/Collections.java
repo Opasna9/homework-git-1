@@ -41,14 +41,14 @@ public class Collections {
 
 }
 
-class A1 extends B1{}
-class A2 extends B2{}
-class A3 extends B3{}
-class A4 extends B4{}
-class B1{}
-class B2 implements C1,C2{}
-class B3 implements C3,C2{}
-class B4{}
+class A1 implements B1,B2{}
+class A2 implements B2{}
+class A3 implements B3,B4{}
+class A4 implements B4{}
+interface B1{}
+interface B2 extends C1,C2{}
+interface B3 extends C3,C2{}
+interface B4{}
 interface C1 extends D1{}
 interface C2 extends D1,D2{}
 interface C3{}
@@ -59,3 +59,12 @@ interface E2{}
 interface E3{}
 interface E4{}
 
+//   iE1   iE2 iE3  iE4
+//     \   /    \   /
+//      iD1      iD2
+//      |  \   /
+//      C1  C2   C3
+//      |  / \  /
+// B1   B2    B3   B4
+//  | / |     |  /  |
+// A1   A2    A3   A4
