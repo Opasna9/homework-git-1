@@ -1,6 +1,6 @@
 package conspect.oop.threads.runnable;
 
-import conspect.oop.threads.deadlock.Account;
+import conspect.oop.threads.model.Account;
 
 import javax.naming.InsufficientResourcesException;
 import java.util.Random;

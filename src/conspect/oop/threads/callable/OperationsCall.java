@@ -1,6 +1,6 @@
 package conspect.oop.threads.callable;
 
-import conspect.oop.threads.deadlock.Account;
+import conspect.oop.threads.model.Account;
 
 import java.util.ArrayList;
 import java.util.List;

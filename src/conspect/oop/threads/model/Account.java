@@ -1,4 +1,4 @@
-package conspect.oop.threads.deadlock;
+package conspect.oop.threads.model;
 
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;

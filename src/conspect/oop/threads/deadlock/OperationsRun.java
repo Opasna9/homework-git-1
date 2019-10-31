@@ -1,5 +1,7 @@
 package conspect.oop.threads.deadlock;
 
+import conspect.oop.threads.model.Account;
+
 import javax.naming.InsufficientResourcesException;
 
 public class OperationsRun {
