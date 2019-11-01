@@ -59,11 +59,9 @@ public class ShipTransfer implements Callable<Cargo> {
                         queueBerth.offer(b);
                     }
 
+                    System.out.println("Ship " + id + " -----> Berth " + b.getId() + " Places = " + b.occupiedPlaces.get());
+
                     queueShip.poll();// выходим из очереди
-
-                    System.out.println("Places = " + b.occupiedPlaces.get());
-                    System.out.println("Ship " + id + " -----> Berth " + b.getId());
-
                    // ждем 2-ого для обмена
                     try {
                         b.BARRIER.await();

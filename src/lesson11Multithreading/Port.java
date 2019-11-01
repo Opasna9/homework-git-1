@@ -44,13 +44,14 @@ public class Port {
         }
     }
 
-    private static void startBerths(int numberOfBerth, ConcurrentLinkedQueue<Berth> queueBerth) {
+    private static void startBerths(int numberOfBerth, ConcurrentLinkedQueue<Berth> queueBerth) throws InterruptedException {
         ExecutorService service = Executors.newFixedThreadPool(numberOfBerth);
         for (int i = 0; i < numberOfBerth; i++) {
             Berth berth = new Berth(i, queueBerth);
             service.execute(berth);
         }
         service.shutdown();
+        service.awaitTermination(1, TimeUnit.SECONDS); // Даем еще время на завршение потоков
     }
 
     private static List<Future<Cargo>> startShips(int numberOfShips, ConcurrentLinkedQueue<ShipTransfer> queueShip, ConcurrentLinkedQueue<Berth> queueBerth) throws InterruptedException {
@@ -79,7 +80,7 @@ public class Port {
         System.out.println("---- Старт всех кораблей одновременно ----");
         countDownLatch.countDown();
 
-        service.awaitTermination(5, TimeUnit.SECONDS); // Даем еще время на завршение потоков
+        service.awaitTermination(2, TimeUnit.SECONDS); // Даем еще время на завршение потоков
 
         return futureList;
     }
