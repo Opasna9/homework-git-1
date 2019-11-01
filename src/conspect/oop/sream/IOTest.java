@@ -31,6 +31,8 @@ public class IOTest {
             is = new FileInputStream(file);
             os = new FileOutputStream(fileOut);
 
+
+
 //            int b = 0;
 
 //            while (b != -1){
@@ -47,7 +49,8 @@ public class IOTest {
             //String strpath="text.txt";
             System.out.println("FileReader");
             fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
+            BufferedReader br = new BufferedReader(fr);// тоже надо закрыть
+
             String ch;
             StringBuffer sb = new StringBuffer();
 
