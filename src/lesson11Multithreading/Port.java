@@ -43,7 +43,7 @@ public class Port {
     }
 
     private static void startBerths(int numberOfBerth, ConcurrentLinkedQueue<Berth> queueBerth) throws InterruptedException {
-        ExecutorService service = Executors.newFixedThreadPool(numberOfBerth);
+        ExecutorService service = Executors.newFixedThreadPool(3);
         for (int i = 0; i < numberOfBerth; i++) {
             Berth berth = new Berth(i, queueBerth);
             service.execute(berth);
@@ -56,7 +56,7 @@ public class Port {
         List<Future<Cargo>> futureList = new ArrayList<>();
         CountDownLatch countDownLatch = new CountDownLatch(1);
 
-        ExecutorService service = Executors.newFixedThreadPool(numberOfShips);
+        ExecutorService service = Executors.newFixedThreadPool(3);
 
         for (int i = 0; i < numberOfShips; i++) {
             Cargo cargo = null;
