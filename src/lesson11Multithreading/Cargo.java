@@ -20,8 +20,6 @@ public class Cargo {
         this.count = count;
     }
 
-
-
     public void setBerth(int berth) {
         this.berth = berth;
     }

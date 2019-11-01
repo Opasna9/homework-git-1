@@ -1,6 +1,5 @@
 package lesson11Multithreading;
 
-import javax.sound.sampled.Port;
 import java.util.concurrent.*;
 
 public class ShipTransfer implements Callable<Cargo> {

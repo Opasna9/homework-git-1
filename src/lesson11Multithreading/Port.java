@@ -8,8 +8,6 @@ import static conspect.oop.threads.callable.OperationsCall.rnd;
 
 public class Port {
 
-
-
     public static void main(String[] args) {
         System.out.println("Тема Корабли. \n" +
                 "Имеется заданное число кораблей и заданной число причалов, где корабли должны обмениваться грузами. \n" +
@@ -21,8 +19,8 @@ public class Port {
                 "Порт должен принять все корабли и завершить свою работу.");
 
 
-        int numberOfShips = 30;// кол.-во кораблей
-        int numberOfBerth = 5;// кол.-во причалов
+        int numberOfShips = 100;// кол.-во кораблей
+        int numberOfBerth = 9;// кол.-во причалов
         // очередь для причалов
         ConcurrentLinkedQueue<Berth> queueBerth = new ConcurrentLinkedQueue<>();
         // очередь для кораблей
