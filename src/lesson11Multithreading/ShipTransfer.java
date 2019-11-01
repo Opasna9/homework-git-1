@@ -35,7 +35,7 @@ public class ShipTransfer implements Callable<Cargo> {
         // проходим через очередь
         queueShip.add(this);
         //queueShip.put(this);
-        System.out.println("Ship " + id + " in queueShip. ");
+        System.out.println("Ship " + id + " in queueShip. size = " + queueShip.size());
 
 
         while (true) {
@@ -58,7 +58,8 @@ public class ShipTransfer implements Callable<Cargo> {
                         queueBerth.offer(b);
                     }
 
-                    System.out.println("Ship " + id + " -----> Berth " + b.getId() + " Places = " + b.occupiedPlaces.get());
+                    System.out.println("Ship " + id + " -----> Berth " + b.getId()
+                            + " Places = " + b.occupiedPlaces.get());
 
                     queueShip.poll();// выходим из очереди
                    // ждем 2-ого для обмена
