@@ -77,29 +77,21 @@ public class ShipTransfer implements Callable<Cargo> {
                         e.printStackTrace();
                         return new Cargo("error3:" + e.getMessage());
                     }
-                    // запишем на посылке, в каком причале обменялись
-                    cargo.setBerth(b.getId());
-                    System.out.println("Дождались и обменялись");
 
-                    //Thread.sleep(1000);
                     // освобождаем место
                     b.occupiedPlaces.decrementAndGet();
 
-                    System.out.println("Ship " + id + " end. " + cargo);
+                    // запишем на посылке, в каком причале обменялись
+                    cargo.setBerth(b.getId());
+                    System.out.println("Дождались и обменялись Ship " + id + " end. " + cargo);
+
                     break;
                 }
             } else {
                 // пусть другие пока займут процессорное время
                 Thread.yield();
-                //Thread.sleep(100);
             }
         }
-
-
-        //Berth berth = queueBerth.take();
-
-
-        //System.out.println(queueBerth.take());
 
         return cargo;
     }
