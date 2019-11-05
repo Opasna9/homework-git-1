@@ -236,4 +236,34 @@ public class StringUtils {
 
         return result.trim();
     }
+
+    public static int countParagraphs(String s){
+        int result = 0;
+        String[] sArray = s.split("\n");
+
+        for (String s1 : sArray) {
+            result++;
+        }
+        return result;
+    }
+
+    public static int countSentences(String s){
+        int result = 0;
+        String[] sArray = s.split("[.!?]");
+
+        for (String s1 : sArray) {
+            result++;
+        }
+        return result;
+    }
+
+    public static int countWords(String s){
+        int result = 0;
+        String[] sArray = s.split(" ");
+
+        for (String s1 : sArray) {
+            result++;
+        }
+        return result;
+    }
 }
