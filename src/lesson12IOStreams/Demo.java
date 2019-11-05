@@ -71,24 +71,22 @@ public class Demo {
 
         utils.FileUtils.writeFile(fileInName, text, encoding);
 
-        StringBuffer buffer = new StringBuffer();
-
+        StringBuilder sb = new StringBuilder();
 
         try (FileReader fr = new FileReader(fileInName);
              BufferedReader br = new BufferedReader(fr);) {
 
-            int ch;
             String str;
             while ((str = br.readLine()) != null) {
-                buffer.append(str);
-                buffer.append("\n");
+                sb.append(str);
+                sb.append("\n");
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        System.out.println(buffer.toString().trim());
+        System.out.println(sb.toString().trim());
 
 
 
