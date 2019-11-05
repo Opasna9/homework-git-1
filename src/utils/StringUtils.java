@@ -1,5 +1,8 @@
 package utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static utils.ArrayUtils.sortBubbleArray;
 
 public class StringUtils {
@@ -208,5 +211,29 @@ public class StringUtils {
             }
         }
         return result.toString();
+    }
+
+    public static String swapFirstLastWord(String s) {
+        String[] sArray = s.split(" ");
+        String result = "";
+
+        String first = ""; // symbol position in string
+        String last = ""; // symbol position in ending
+
+        for (int i = 0; i < sArray.length; i++) {
+            if (sArray.length == 1){
+                result +=  sArray[i] + " ";
+            } else if (i == 0){
+                first = sArray[i] + " ";
+            } else if (i == sArray.length-1){
+                last = sArray[sArray.length-1] + " ";
+            } else {
+                result +=  sArray[i] + " ";
+            }
+        }
+
+        result = last + result + first;
+
+        return result.trim();
     }
 }

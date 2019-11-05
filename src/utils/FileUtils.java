@@ -1,5 +1,7 @@
 package utils;
 
+import org.apache.commons.io.IOUtils;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -61,4 +63,28 @@ public class FileUtils {
         return list;
     }
 
+    public static void writeFile(String fileName, String text, String encoding) {
+        try (OutputStream os = new FileOutputStream(fileName)) {
+            IOUtils.write(text, os, encoding);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void copyFileSwapFirstLastWordAtLine(String fileInName, String fileOutName) {
+        try (FileReader fr = new FileReader(fileInName);
+             BufferedReader br = new BufferedReader(fr);
+             FileWriter fw = new FileWriter(fileOutName);
+             BufferedWriter bw = new BufferedWriter(fw);
+             PrintWriter pw = new PrintWriter(bw)) {
+
+            String str;
+            while ((str = br.readLine()) != null) {
+                pw.println(utils.StringUtils.swapFirstLastWord(str));
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
