@@ -2,17 +2,9 @@ package lesson12IOStreams;
 
 public class ParagraphMiddleware extends Middleware {
 
-    public ParagraphMiddleware() {
-    }
-
-    public ParagraphMiddleware(Middleware successor){
-        this.setSuccessor(successor);
-    }
-
     @Override
-    public boolean check(String s) {
+    public void count(String s) {
         int result = utils.StringUtils.countParagraphs(s);
-        System.out.println(result);
-        return checkNext(s);
+        System.out.println("Paragraph = " + result);
     }
 }

@@ -87,4 +87,25 @@ public class FileUtils {
             e.printStackTrace();
         }
     }
+
+    public static String file2String(String fileInName) {
+        StringBuilder sb = new StringBuilder();
+
+        try (FileReader fr = new FileReader(fileInName);
+             BufferedReader br = new BufferedReader(fr);) {
+
+            String str;
+            while ((str = br.readLine()) != null) {
+                sb.append(str);
+                sb.append("\n");
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(sb.toString().trim());
+
+        return sb.toString().trim();
+    }
 }

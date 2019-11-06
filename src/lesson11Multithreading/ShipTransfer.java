@@ -31,12 +31,10 @@ public class ShipTransfer implements Callable<Cargo> {
         }
         System.out.println("Ship " + id + " started. " + cargo);
 
-
         // проходим через очередь
         queueShip.add(this);
-        //queueShip.put(this);
-        System.out.println("Ship " + id + " in queueShip. size = " + queueShip.size());
 
+        System.out.println("Ship " + id + " in queueShip. size = " + queueShip.size());
 
         while (true) {
             // проверяем первые ли мы в очереди

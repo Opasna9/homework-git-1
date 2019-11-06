@@ -1,10 +1,5 @@
 package lesson12IOStreams;
 
-import org.apache.commons.io.IOUtils;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
 
 public class Demo {
@@ -25,20 +20,21 @@ public class Demo {
         int boundRandomInt = 1000;
 
         utils.FileUtils.writeFileWithRandomInt(fileName, countElement, boundRandomInt);
+        System.out.println("created file: textWriterTask1.txt");
 
         List<Integer> list = utils.FileUtils.getSortListIntFromFile(fileName);
 
         fileName = "textWriterTask1SortInt.txt";
         utils.FileUtils.writeFileIntFromList(list, fileName);
 
-        System.out.println("created files: textWriterTask1.txt, textWriterTask1SortInt.txt\n");
+        System.out.println("created file: textWriterTask1SortInt.txt\n");
     }
 
     private static void runTask2() {
         System.out.println("2. Прочитать строки из файла и поменять местами " +
                 "первое и последнее слова в каждой строк.");
 
-        String fileInName = "fileInTask2.txt";
+        String fileInName = "fileForTask2.txt";
         String text = "один два три\n" +
                 "один два три\n" +
                 "один два три\n" +
@@ -47,12 +43,12 @@ public class Demo {
         String encoding = "UTF-8";
 
         utils.FileUtils.writeFile(fileInName, text, encoding);
+        System.out.println("created file: fileForTask2.txt");
 
         String fileOutName = "textWriterTask2Swap.txt";
 
         utils.FileUtils.copyFileSwapFirstLastWordAtLine(fileInName, fileOutName);
-
-        System.out.println("created files: fileInTask2.txt, textWriterTask2Swap.txt\n");
+        System.out.println("created file: textWriterTask2Swap.txt\n");
 
     }
 
@@ -61,7 +57,7 @@ public class Demo {
                 "предложения, слова, вывести статистику по тексту.\n" +
                 "Ко всему этому использовать паттерн Chain of Responsibilities.");
 
-        String fileInName = "fileInTask3.txt";
+        String fileInName = "fileForTask3.txt";
         String text = "Таиландское издание The Phuket News сообщило, что белорус Максим Щарцов приехал со своей женой в отпуск на Пхукет. 30 октября он купался в море и пропал без вести — девушка забила тревогу. Утром 2 ноября тело белоруса нашли у скалы. Супруга погибшего Ирина Рослик рассказала Onliner, как все случилось.\n" +
                 "«Той же ночью был начат поиск, но спасатели не смогли найти туриста в темноте. Поисковые работы продолжались каждый день с участием множества местных спасательных агентств, добровольцев и офицеров. Королевский флот Таиланда выделил вертолет, чтобы прочесывать море с воздуха», — написали в The Phuket News. Около 7:45 утра 2 ноября поисковая группа обнаружила тело туриста, которое отвезли в больницу.\n" +
                 "«Хотя официального подтверждения еще нет, это тело мужчины примерно того же возраста, что и Максим Щарцов. На нем такие же плавки, в каких в последний раз видели господина Щарцова, когда он плавал», — говорится в сообщении.\n" +
@@ -70,40 +66,14 @@ public class Demo {
         String encoding = "UTF-8";
 
         utils.FileUtils.writeFile(fileInName, text, encoding);
+        System.out.println("created file: fileForTask3.txt");
 
-        StringBuilder sb = new StringBuilder();
+        String str = utils.FileUtils.file2String(fileInName);
 
-        try (FileReader fr = new FileReader(fileInName);
-             BufferedReader br = new BufferedReader(fr);) {
+        Middleware middleware = new ParagraphMiddleware();
+        middleware.linkWith(new SentenceMiddleware()).linkWith(new WordMiddleware());
 
-            String str;
-            while ((str = br.readLine()) != null) {
-                sb.append(str);
-                sb.append("\n");
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        System.out.println(sb.toString().trim());
-
-        String strIn = sb.toString().trim();
-
-        Middleware middleware = new ParagraphMiddleware().linkWith(new SentenceMiddleware()).linkWith(new WordMiddleware());
-
-
-        Middleware word = new WordMiddleware();
-        Middleware sentence =  new SentenceMiddleware(word);
-        Middleware paragraph = new ParagraphMiddleware(sentence);
-
-        paragraph.check(strIn);
-
-       middleware.check(strIn);
-
-//        middleware.linkWith(new SentenceMiddleware()).check(strIn);
-//        middleware.linkWith(new WordMiddleware()).check(strIn);
-//        //middleware.linkWith(new WordMiddleware()).count(strIn);
+        middleware.countChain(str);
 
     }
 
